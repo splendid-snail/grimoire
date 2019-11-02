@@ -17,6 +17,7 @@ def generate_subtitle():
     artes_noun = ["Art of", "Practice of", "Method for", "Path to"]
     artes_verb = ["Commanding", "Controlling", "Conjuring", "Drawing Forthe", "Evoking"]
     spirits = ["Spirits", "Spiritual Formes", "Beings", "Daemons"]
+<<<<<<< HEAD
     final = ["of Divers Kindes", "of All Sortes", "Completely"]
     subtitle = random.choice(first_words) + " " + random.choice(artes_adj) + " " + random.choice(artes_noun) + " " + random.choice(artes_verb) + " " + random.choice(spirits) + " " + random.choice(final)
     return subtitle
@@ -34,12 +35,21 @@ def name():
     print(roll)
 
 
+=======
+    final = ["of Divers Kindes", "of All Sortes", "Completely", "as it had been Passed Downe"]
+    subtitle = random.choice(first_words) + " " + random.choice(artes_adj) + " " + random.choice(artes_noun) + " " + random.choice(artes_verb) + " " + random.choice(spirits) + " " + random.choice(final)
+    return subtitle
+
+>>>>>>> 9125373e323356f81a3bb15ca1cf30a336194a46
 
 #Script begins
 title = "Grimoire"
 subtitle = generate_subtitle()
 body_content = "<p>Hello world!</p>"
 total_html_string = generate_total_page(title, subtitle, body_content)
+<<<<<<< HEAD
 random.seed()
 name()
+=======
+>>>>>>> 9125373e323356f81a3bb15ca1cf30a336194a46
 output_final_html(total_html_string)
