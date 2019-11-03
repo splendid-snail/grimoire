@@ -21,28 +21,38 @@ def generate_subtitle():
     subtitle = random.choice(first_words) + " " + random.choice(artes_adj) + " " + random.choice(artes_noun) + " " + random.choice(artes_verb) + " " + random.choice(spirits) + " " + random.choice(final)
     return subtitle
 
+def generate_list_body(quantity, names_list):
+    output = "<ol>\n"
+    while quantity > 0:
+        output += "<li>" + name(names_list) +"</li>\n"
+        quantity -= 1
+    output += "</ol>"
+    return output
+
+
 def name(names_list):
-    first_syl = ["A", "Na", "Mo", "Ai", "Ba", "Be", "Sa", "E", "Bo", "Gu", "Bu", "Le", "Ba" , "Ar"]
+    first_syl = ["A", "Na", "Mo", "Ai", "Ba", "Be", "Sa", "E", "Bo", "Gu", "Bu", "Le", "Ba" , "Ar", "Ger", "Dar", "Da", "Cha", "Char", "Haz", "Ha", "He", "Her", "Hor", "Bor", "Ado", "Camu", "Oro"]
     cons = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "l", "m", "n", "p", "q", "r", "s", "t", "th", "v", "w", "x", "y", "z"]
-    vowel = ["a", "e", "i", "o", "u", "y"]
-    middle_syl = ["az", "mor", "oth", "al", "el", "an"]
-    last_syl = ["oth", "eros", "eos", "os", "ar", "son", "mon", "der", "aye", "oin", "er", "alam", "ael", "res", "iel"]
+    vowel = ["a", "e", "i", "o", "u"]
+    middle_syl = ["az", "mor", "oth", "al", "el", "an", "en", "if", "eth"]
+    last_syl = ["oth", "eros", "eos", "os", "ar", "son", "mon", "der", "aye", "oin", "er", "alam", "ael", "res", "iel", "bas", "genti", "cel", "frons"]
     roll = random.randint(0,99)
     """
     0-9: Shortish name
-    10-94: Reasonable name
-    95-99: Unreasonable name
+    10-96: Reasonable name
+    97-99: Unreasonable name
     """
     name = ""
     unique = False
     while not unique:
+        name = ""
         if roll < 10: #Just to test for now
             flip = random.randint(0,3)
             if flip == 0:
                 name = random.choice(first_syl) + random.choice(cons)
             else:
                 name = random.choice(first_syl) + random.choice(cons) + random.choice(last_syl)
-        elif roll < 95:
+        elif roll < 97:
             syllables = random.randint(1,3)
             name += random.choice(first_syl) + random.choice(cons)
             while syllables > 0:
@@ -69,8 +79,9 @@ random.seed()
 
 title = "Grimoire"
 subtitle = generate_subtitle()
+names_list = []
 
-body_content = "<p>Hello world!</p>"
+body_content = generate_list_body(50000, names_list)
 
 total_html_string = generate_total_page(title, subtitle, body_content)
 output_final_html(total_html_string)
