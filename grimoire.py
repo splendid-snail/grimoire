@@ -32,7 +32,7 @@ subtitle = generate_subtitle()
 #useful and necessary lists
 names_list = []
 tarot_deck = tarot.generate()
-random.shuffle(tarot_deck)
+#random.shuffle(tarot_deck)
 kings_list = demons.create_kings(names_list)
 demons_list = demons.create_demons(kings_list, names_list, tarot_deck)
 
@@ -42,7 +42,14 @@ total_html_string = generate_total_page(title, subtitle, body_content)
 output_final_html(total_html_string)
 
 #Debug and testing bits
+"""
 demon_count = 0
 for demon in demons_list:
     demon_count += 1
-    print(str(demon_count) + ". " + demon.name + ", subject of " + demon.king.name + ", king of the " + demon.realm + " realm.")
+    print(str(demon_count) + ". " + demon.rank + " " + demon.name + " who may appear as a " + demon.human_form)
+"""
+
+"""
+for card in tarot_deck:
+    print(str(card.number) + ". " + str(card.rank))
+"""

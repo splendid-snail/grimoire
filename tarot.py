@@ -4,6 +4,8 @@ class Card:
         self.name = name
         self.suit = suit
         self.arcana = arcana
+        self.rank = 0
+
 
 def generate_minor_suit(suit, deck, total_cards_made):
     suit_cards_made = 0
@@ -11,6 +13,8 @@ def generate_minor_suit(suit, deck, total_cards_made):
     while suit_cards_made < 14:
         new_card_name = card_types[suit_cards_made] + " of " + suit
         new_card = Card(total_cards_made, new_card_name, suit, "Minor")
+        if suit_cards_made > 8: #Cards of rank X or above are midranks
+            new_card.rank = 1
         deck.append(new_card)
         suit_cards_made += 1
         total_cards_made += 1
@@ -22,8 +26,9 @@ def generate():
     tarot_deck = []
 
     while cards_made < 78:
-        while cards_made < 22:
+        while cards_made < 22: #Major acana, followed by wands, pentacles, cups, swords
             new_card = Card(cards_made, major_arcana[cards_made], 0, "Major")
+            new_card.rank = 2
             tarot_deck.append(new_card)
             cards_made += 1
         while cards_made < 36:
