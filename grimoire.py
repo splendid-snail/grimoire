@@ -42,12 +42,12 @@ total_html_string = generate_total_page(title, subtitle, body_content)
 output_final_html(total_html_string)
 
 #Debug and testing bits
-"""
+#"""
 demon_count = 0
 for demon in demons_list:
     demon_count += 1
     print(str(demon_count) + ". " + demon.rank + " " + demon.name + " who may appear as a " + demon.human_form)
-"""
+#"""
 
 """
 for card in tarot_deck:
