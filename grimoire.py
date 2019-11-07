@@ -3,6 +3,7 @@ import random
 import tarot
 import name
 import demons
+import text_output
 
 def generate_total_page(title, subtitle, body_content):
     html_header = "<!DOCTYPE html>\n<html>\n\n<head>\n<title>" + title + "</title>\n<link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n\n"
@@ -42,12 +43,17 @@ total_html_string = generate_total_page(title, subtitle, body_content)
 output_final_html(total_html_string)
 
 #Debug and testing bits
-#"""
+kingcount = 0
+while kingcount < 6:
+    print(text_output.describe_realm(kings_list[kingcount]))
+    kingcount += 1
+
+"""
 demon_count = 0
 for demon in demons_list:
     demon_count += 1
     print(str(demon_count) + ". " + demon.rank + " " + demon.name + " who may appear as a " + demon.human_form)
-#"""
+"""
 
 """
 for card in tarot_deck:

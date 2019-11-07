@@ -35,12 +35,12 @@ class King:
     def __init__(self, name, realm):
         titles = ["Lord", "King", "Emperor", "Basileus"]
         self.name = name
-        self.title = archaic(random.choice(titles))
+        self.title = random.choice(titles)
         self.realm = realm
         animals_set = False
         while not animals_set:
-            self.animal_form_one = archaic(random.choice(animals))
-            self.animal_form_two = archaic(random.choice(animals))
+            self.animal_form_one = random.choice(animals)
+            self.animal_form_two = random.choice(animals)
             if self.animal_form_one != self.animal_form_two:
                 animals_set = True
 
