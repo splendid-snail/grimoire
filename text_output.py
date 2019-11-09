@@ -53,4 +53,6 @@ def describe_king(king):
     output += king.cont
     output += " "
     output += random.choice(language.king_consequence_intros) + king.consequence
+    output += " "
+    output += random.choice(language.king_form_intros) + article(king.animal_form_one) + " " + archaic(king.animal_form_one) + " or " + article(king.animal_form_two) + " " + archaic(king.animal_form_two) + random.choice(language.king_form_endings)
     return output

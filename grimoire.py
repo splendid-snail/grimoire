@@ -50,8 +50,6 @@ while kingcount < 6:
     print()
     kingcount += 1
 
-
-
 """
 demon_count = 0
 for demon in demons_list:

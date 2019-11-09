@@ -1,6 +1,6 @@
 import name
 import random
-from language import archaic, spirit_forms, human_descriptions, human_forms, planets, animals, trinkets, king_continue, king_consequence
+from language import archaic, article, spirit_forms, human_descriptions, human_forms, planets, animals, trinkets, king_continue, king_consequence
 
 class Demon:
     def __init__(self, name, card, king):
@@ -58,6 +58,15 @@ def create_demons(kings_list, names_list, tarot_deck):
             demons_made += 1
     return demons_list
 
+def generate_king_consequence():
+    consequence = random.choice(king_consequence)
+    if "ANIMAL" in consequence:
+        animal = archaic(random.choice(animals))
+        indef_article = article(animal)
+        consequence = consequence.replace("ANIMAL", animal)
+        consequence = consequence.replace("ARTICLE", indef_article)
+    return consequence
+
 def create_kings(names_list):
     kings_made = 0
     kings_list = []
@@ -73,13 +82,13 @@ def create_kings(names_list):
         used_continues.append(cont)
         new_king.cont = cont
 
-        consequence = random.choice(king_consequence)
+        consequence = generate_king_consequence()
         while consequence in used_consequences:
-            consequence = random.choice(king_consequence)
+            consequence = generate_king_consequence()            
         used_consequences.append(consequence)
         new_king.consequence = consequence
 
         kings_list.append(new_king)
         kings_made += 1
-        
+
     return kings_list
