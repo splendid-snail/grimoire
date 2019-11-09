@@ -46,7 +46,11 @@ output_final_html(total_html_string)
 kingcount = 0
 while kingcount < 6:
     print(text_output.describe_realm(kings_list[kingcount]))
+    print(text_output.describe_king(kings_list[kingcount]))
+    print()
     kingcount += 1
+
+
 
 """
 demon_count = 0
