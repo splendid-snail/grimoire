@@ -43,6 +43,7 @@ total_html_string = generate_total_page(title, subtitle, body_content)
 output_final_html(total_html_string)
 
 #Debug and testing bits
+
 kingcount = 0
 while kingcount < 6:
     print(text_output.describe_realm(kings_list[kingcount]))
@@ -50,12 +51,12 @@ while kingcount < 6:
     print()
     kingcount += 1
 
-"""
 demon_count = 0
 for demon in demons_list:
     demon_count += 1
-    print(str(demon_count) + ". " + demon.rank + " " + demon.name + " who may appear as a " + demon.human_form)
-"""
+    print(text_output.describe_demon(demon))
+    print()
+
 
 """
 for card in tarot_deck:

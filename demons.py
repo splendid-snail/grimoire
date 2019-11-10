@@ -1,6 +1,6 @@
 import name
 import random
-from language import archaic, article, spirit_forms, human_descriptions, human_forms, planets, animals, trinkets, king_continue, king_consequence
+from language import archaic, article, spirit_forms, human_descriptions, human_forms, planets, animals, trinkets, king_continue, king_consequence, voices
 
 class Demon:
     def __init__(self, name, card, king):
@@ -12,21 +12,21 @@ class Demon:
         self.king = king
         self.realm = king.realm
         if card.rank == 0:
-            self.rank = archaic(random.choice(low_ranks))
+            self.rank = random.choice(low_ranks)
         elif card.rank == 1:
-            self.rank = archaic(random.choice(mid_ranks))
+            self.rank = random.choice(mid_ranks)
         else:
-            self.rank = archaic(random.choice(upper_ranks))
+            self.rank = random.choice(upper_ranks)
         #insert twisted sword easter egg here
-        self.animal_form = archaic(random.choice(animals))
-        self.human_form = archaic(random.choice(human_descriptions)) + " " + archaic(random.choice(human_forms))
-        self.spirit_form = archaic(random.choice(spirit_forms))
+        self.animal_form = random.choice(animals)
+        self.human_form = random.choice(human_descriptions) + " " + random.choice(human_forms)
+        self.spirit_form = random.choice(spirit_forms)
         self.lucky_number = random.randint(1,99)
-        self.planet = archaic(random.choice(planets))
-        self.trinket = archaic(random.choice(trinkets))
+        self.planet = random.choice(planets)
+        self.trinket = random.choice(trinkets)
+        self.voice = random.choice(voices)
         """
         To add:
-        * voice
         * consequences (split by rank?)
         * skills
         * sign of presence / voice
@@ -51,10 +51,13 @@ def create_demons(kings_list, names_list, tarot_deck):
     demons_list = []
     for king in kings_list:
         demons_to_make = 13
+        order_in_realm = 1
         while demons_to_make > 0:
             new_demon = Demon(name.new(names_list), tarot_deck[demons_made], king)
+            new_demon.order_in_realm = order_in_realm
             demons_list.append(new_demon)
             demons_to_make -= 1
+            order_in_realm += 1
             demons_made += 1
     return demons_list
 
@@ -84,7 +87,7 @@ def create_kings(names_list):
 
         consequence = generate_king_consequence()
         while consequence in used_consequences:
-            consequence = generate_king_consequence()            
+            consequence = generate_king_consequence()
         used_consequences.append(consequence)
         new_king.consequence = consequence
 

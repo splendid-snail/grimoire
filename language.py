@@ -26,17 +26,21 @@ lower_attribs = ["darkness", "sins", "hidden things", "shadows", "things that cr
 ruled_passive = ["ruled", "governed", "overseen", "maintained", "dominated"]
 ruled_active = ["rules", "governs", "oversees", "maintains", "dominates"]
 realm_intros_passive = ["This realm is", "This kingdom is", "Know that this realm is"]
-realm_attrib_intros = ["It is the realm of ", "Here in this realm is ", "This is a realm with attributes of ", "Here is ", "This is the traditional home of ", "It has longe been known to the learned as the realm of ", "In this realm`s Pleroma are the spirits of ", "Among the strongest influences here are "]
+realm_attrib_intros = ["It is the realm of ", "Here in this realm is ", "This is a realm with attributes of ", "Here are ", "This is the traditional home of ", "It has longe been known to the learned as the realm of ", "In this realm`s Pleroma are the spirits of ", "Among the strongest influences here are "]
 realm_attrib_continued = [", where you shall finde OBJECT.", ", where you may find OBJECT.", ", where OBJECT shall be found.", ", where the influences of OBJECT are most strong."]
 
 #King description bits
-
 king_intros = ["The lorde of this realm, NAME, is ARTICLE TITLE"]
 king_continue = ["with a fearsome countenance, known to drive men mad at the merest sight.", "known to beguile and mystify, drawing men in with a grotesque but compelling visage.", "of seeming good cheer, but mistake him not, he is a fearesome being.", "who maketh all who know him quake with fear at the mere sound of his grotesque name.", "whose name fills men and beasts alike with fear, and the sound of this name, pronounced properly, is akin to a dire scream.", "whose name makes men and beast alike quake with fear.", ". He must not be trifled with or even called, or the consequences may go beyond your own life and into that of your loved ones.", ". He is a vindictive lord, and will smite with cruelty anyone who he notices."]
 king_consequence_intros = ["If you anger him, ", "If you should cross or anger him, ", "If you raise his wrath ", "Be wary of attracting his attention, else, ", "Beware of his wrath, for once raised, ", "Should you incur his ire, "]
 king_consequence = ["he shall destroy your very soul.", "you shall never againe sleepe, and soon you shall die.", "it shall be the end of all that you love and hold dear, and you can look forward to naught but death.", "you shall never again find joy in your life, which will be much shortened, and shall end with your complete dissolution.", "you will find yourself quickly turned into ARTICLE ANIMAL, and all human pleasure shall be lost to you, and you shall quickly die. ", "you can look forward to a short life turned into ARTICLE ANIMAL before you quickly are killed.", "you shall Die.", "it shall be your end.", "your most beloved friend shall be turned into ARTICLE ANIMAL, which you shall be made to watch, and then you shall both die."]
 king_form_intros = ["When he is willing, he has been known to appear in the form of ", "If and only if it pleases him, he may appear as ", "Going about unknown in the world of men, he may take the form of ", "To observe the affairs of demons and men undetected, he may go about as ", "While the formes can not be evoked directly, at his Will he may go about as ", "His preferred disguise is as "]
 king_form_endings = [". But it matters not, for you shall not see him.", ", but you shall never know in either case that it is him.", ". Whichever it may be, he remains a mortal risk to you.", ", this latter of an unnatural colour."]
+
+#Demon description bits
+consequences_intros = ["If he is not appeased, it could be that", "Do not anger him, or else", "As a consequence of incurring his wrath", "If you maketh him mad", "If you trouble him excessively", "If he is not pleased with your gift or your reason", "If this beast is in a malevolent mood", "If it is not your lucky day", "If your calculations are not properly reasoned", "If you contact him at the wrong time"]
+consequences_list = ["you will be turned into ARTICLE ANIMAL", "you will be killed by ARTICLE HUMAN_DESCRIPTION HUMAN_FORM", "you will lose your Hair", "you will be bitten by ARTICLE ANIMAL", "you will fall into a lake", "you will be set upon by a mob", "you will be betrayed by a loved one", "you will be humiliated in public", "you will wet yourself", "you will soil yourself"]
+
 
 def archaic(word):
     #don't mess with capitals if the whole word is upper
@@ -80,3 +84,20 @@ def article(word):
     else:
         article = "a"
     return article
+
+def ordinal(number):
+    last_digit = number % 10
+    if last_digit == 1:
+        if not number == 11:
+            new_number = str(number) + "st"
+    elif last_digit == 2:
+        if not number == 12:
+            new_number = str(number) + "nd"
+    elif last_digit == 3:
+        if not number == 13:
+            new_number = str(number) + "rd"
+    else:
+        new_number = str(number) + "th"
+    if number == 11 or number == 12 or number == 13:
+        new_number = str(number) + "th"
+    return new_number

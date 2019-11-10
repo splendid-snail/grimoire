@@ -1,6 +1,6 @@
 import language
 import random
-from language import archaic, article
+from language import archaic, article, ordinal
 
 def set_realm_attribs(realm_attribs, output):
         first_attrib = random.choice(realm_attribs)
@@ -55,4 +55,12 @@ def describe_king(king):
     output += random.choice(language.king_consequence_intros) + king.consequence
     output += " "
     output += random.choice(language.king_form_intros) + article(king.animal_form_one) + " " + archaic(king.animal_form_one) + " or " + article(king.animal_form_two) + " " + archaic(king.animal_form_two) + random.choice(language.king_form_endings)
+    return output
+
+def demon_intro(demon):
+    output = "The " + ordinal(demon.order_in_realm) + " demon in this realm is " + demon.name
+    return output
+
+def describe_demon(demon):
+    output = demon_intro(demon)
     return output
