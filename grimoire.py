@@ -57,7 +57,6 @@ for demon in demons_list:
     print(text_output.describe_demon(demon))
     print()
 
-
 """
 for card in tarot_deck:
     print(str(card.number) + ". " + str(card.rank))

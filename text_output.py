@@ -1,5 +1,6 @@
 import language
 import random
+import markov
 from language import archaic, article, ordinal
 
 def set_realm_attribs(realm_attribs, output):
@@ -58,9 +59,25 @@ def describe_king(king):
     return output
 
 def demon_intro(demon):
-    output = "The " + ordinal(demon.order_in_realm) + " demon in this realm is " + demon.name
+    output = "The " + ordinal(demon.order_in_realm) + " demon in the " + demon.realm + " realm is " + demon.name
+    return output
+
+def demon_rank(demon):
+    if demon.rank == 0:
+        output = random.choice(language.low_rank_intros)
+    elif demon.rank == 1:
+        output = random.choice(language.mid_rank_intros)
+    else:
+        output = random.choice(language.high_rank_intros)
+    output = output.replace("RANK", demon.rank)
+    output = output.replace("KING_NAME", demon.king.name)
     return output
 
 def describe_demon(demon):
     output = demon_intro(demon)
+    output += ". "
+    output += demon_rank(demon)
+    output += "\n To invoke him, say thee the following words:"
+    output += "\n"
+    output += "By "+ markov.incantation()
     return output
