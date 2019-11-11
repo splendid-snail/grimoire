@@ -15,7 +15,7 @@ def make_dict(source_list):
     list_index = 0
     list_length = len(source_list)
 
-    while list_index < (list_length - 2): #check this number at some point
+    while list_index < (list_length - 2):
         word_one = source_list[list_index]
         word_two = source_list[list_index + 1]
         word_three = source_list[list_index + 2]
@@ -39,15 +39,12 @@ def make_text(dictionary, iterations):
     while iterations > 0:
         starting_point = ""
         starting_point = random.choice(key_list)
-        point_found = True
-
         new_word = random.choice(dictionary.get(starting_point))
         new_phrase = starting_point + " " + new_word + " "
         output_string += new_phrase
         iterations -= 1
     return output_string
 
-#program test bits
 def incantation():
     output = read_file_to_list("incantation_source.txt")
     dict = make_dict(output)

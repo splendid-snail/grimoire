@@ -62,6 +62,23 @@ def demon_intro(demon):
     output = "The " + ordinal(demon.order_in_realm) + " demon in the " + demon.realm + " realm is " + demon.name
     return output
 
+def demon_voice(demon):
+    output = random.choice(language.demon_voices)
+    output = output.replace("VOICE_TYPE", demon.voice)
+    return output
+
+def demon_forms(demon):
+    output = random.choice(language.demon_animal_form)
+    indef_article = article(demon.animal_form)
+    output = output.replace("ANIMAL", demon.animal_form)
+    output = output.replace("ARTICLE", indef_article)
+
+    output += random.choice(language.demon_spirit_form)
+    indef_article = article(demon.spirit_form)
+    output = output.replace("ARTICLE", indef_article)
+    output = output.replace("SPIRIT_FORM", demon.spirit_form)
+    return output
+
 def demon_rank(demon):
     if demon.rank == 0:
         output = random.choice(language.low_rank_intros)
@@ -77,7 +94,15 @@ def describe_demon(demon):
     output = demon_intro(demon)
     output += ". "
     output += demon_rank(demon)
-    output += "\n To invoke him, say thee the following words:"
+    output += " "
+    output += demon_voice(demon)
+    output += " "
+    output += demon_forms(demon)
+    return output
+
+def describe_ritual(demon):
+    output = "To invoke the " + demon.rank + " " + demon.name + " say thee following words:"
     output += "\n"
     output += "By "+ markov.incantation()
+    output = output.replace("NAME", demon.name)
     return output

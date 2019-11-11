@@ -33,7 +33,7 @@ subtitle = generate_subtitle()
 #useful and necessary lists
 names_list = []
 tarot_deck = tarot.generate()
-#random.shuffle(tarot_deck)
+random.shuffle(tarot_deck)
 kings_list = demons.create_kings(names_list)
 demons_list = demons.create_demons(kings_list, names_list, tarot_deck)
 
@@ -55,6 +55,7 @@ demon_count = 0
 for demon in demons_list:
     demon_count += 1
     print(text_output.describe_demon(demon))
+    print(text_output.describe_ritual(demon))
     print()
 
 """
