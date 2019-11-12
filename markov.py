@@ -48,5 +48,5 @@ def make_text(dictionary, iterations):
 def incantation():
     output = read_file_to_list("incantation_source.txt")
     dict = make_dict(output)
-    output = make_text(dict, 30)
+    output = make_text(dict, 40)
     return output

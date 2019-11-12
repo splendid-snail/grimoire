@@ -70,13 +70,28 @@ def demon_voice(demon):
 def demon_forms(demon):
     output = random.choice(language.demon_animal_form)
     indef_article = article(demon.animal_form)
-    output = output.replace("ANIMAL", demon.animal_form)
+    output = output.replace("ANIMAL", archaic(demon.animal_form))
     output = output.replace("ARTICLE", indef_article)
 
     output += random.choice(language.demon_spirit_form)
     indef_article = article(demon.spirit_form)
     output = output.replace("ARTICLE", indef_article)
-    output = output.replace("SPIRIT_FORM", demon.spirit_form)
+    output = output.replace("SPIRIT_FORM", archaic(demon.spirit_form))
+
+    output += " " + random.choice(language.demon_human_form)
+    indef_article = article(demon.human_form)
+    output = output.replace("ARTICLE", indef_article)
+    output = output.replace("HUMAN_FORM", archaic(demon.human_form))
+    return output
+
+def demon_skills(demon):
+    output = " " + random.choice(language.he_can_intros)
+    if demon.rank == 0:
+        output += random.choice(language.low_rank_skills)
+    elif demon.rank == 1:
+        output += random.choice(language.mid_rank_skills)
+    else:
+        output += random.choice(language.high_rank_skills)
     return output
 
 def demon_rank(demon):
@@ -98,6 +113,8 @@ def describe_demon(demon):
     output += demon_voice(demon)
     output += " "
     output += demon_forms(demon)
+    output += " "
+    output += demon_skills(demon)
     return output
 
 def describe_ritual(demon):
