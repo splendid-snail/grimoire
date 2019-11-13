@@ -21,9 +21,9 @@ def set_realm_attribs(realm_attribs, output):
         return output
 
 def describe_realm(king):
-    output = ""
     realm = king.realm
     flip = random.randint(0,1)
+    output = ""
     if flip > 0: #passive intro
         output += random.choice(language.realm_intros_passive) + " " + archaic(random.choice(language.ruled_passive)) + " by the " + archaic(random.choice(language.king_adj)) + " " + archaic(king.title) + " " + king.name + ". "
     else: #active intro
@@ -59,7 +59,7 @@ def describe_king(king):
     return output
 
 def demon_intro(demon):
-    output = "The " + ordinal(demon.order_in_realm) + " demon in the " + demon.realm + " realm is " + demon.name
+    output = "<strong>The " + ordinal(demon.order_in_realm) + " demon</strong> in the " + demon.realm + " realm is " + demon.name
     return output
 
 def demon_voice(demon):
@@ -92,6 +92,7 @@ def demon_skills(demon):
         output += random.choice(language.mid_rank_skills)
     else:
         output += random.choice(language.high_rank_skills)
+    output += "."
     return output
 
 def demon_rank(demon):
@@ -105,6 +106,12 @@ def demon_rank(demon):
     output = output.replace("KING_NAME", demon.king.name)
     return output
 
+def demon_planet(demon):
+    output = random.choice(language.demon_planet)
+    output = output.replace("DEMON_NAME", demon.name)
+    output = output.replace("PLANET_NAME", demon.planet)
+    return output
+
 def describe_demon(demon):
     output = demon_intro(demon)
     output += ". "
@@ -115,11 +122,12 @@ def describe_demon(demon):
     output += demon_forms(demon)
     output += " "
     output += demon_skills(demon)
+    output += " "
+    output += demon_planet(demon)
     return output
 
 def describe_ritual(demon):
-    output = "To invoke the " + demon.rank + " " + demon.name + " say thee following words:"
-    output += "\n"
-    output += "By "+ markov.incantation()
+    output = "<p>To invoke the " + demon.rank + " " + demon.name + " say thee following words:</p>\n"
+    output += "<p>By "+ markov.incantation() + "</p>\n"
     output = output.replace("NAME", demon.name)
     return output

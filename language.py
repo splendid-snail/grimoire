@@ -57,6 +57,17 @@ demon_spirit_form = [", and in his spirit form he may appear as ARTICLE SPIRIT_F
 
 demon_human_form = ["To walk among men or visit you in publick, he will appear as ARTICLE HUMAN_FORM.", "To go among men he appeareth as ARTICLE HUMAN_FORM.", "To walk among men he appeareth as ARTICLE HUMAN_FORM.", "He also appeareth in the form of ARTICLE HUMAN_FORM.", "He may also come to you as ARTICLE HUMAN_FORM to drive a bargain.", "He may come forth in human forme as ARTICLE HUMAN_FORM.", "He may appeare to you as ARTICLE HUMAN_FORM.", "He may appeare to you as ARTICLE HUMAN_FORM who shall beguile you.", "He can bewitch men into seeing him as ARTICLE HUMAN_FORM.", "He goes about unknown among men as ARTICLE HUMAN_FORM."]
 
+demon_planet = ["Though an infernal spirit DEMON_NAME is subject to Heavenly influences. The Planet influencing his actions is PLANET_NAME.", "Under the influence of Celestial bodies, you may find him easier to contact when PLANET_NAME is in Ascendency.", "His Planetary influence is PLANET_NAME.", "DEMON_NAME's Planetary influence is under PLANET_NAME."]
+
+# Used in ritual generation
+dance_ritual_intros = ["To gaine the attention of DEMON_NAME, you will need to Acte out the following motions.", "This demon is most pleased by deliberate motions, and this is how he is conjured.", "DEMON_NAME is a being of Chaos, and will be most pleased with you if you shew a Dance for him.", "Go through the following physical motions to conjure this DEMON_RANK DEMON_NAME"]
+
+
+circle_ritual_intros = ["This demon is most taken with signs and sigils, and will require geomantic encouragement before he will shew himself to you.", "DEMON_NAME is known to be bound by sigils, and to conjure him you will need to prepare your Chalke.", "DEMON_NAME is a creature of infernal Rules and will obey you presently if you Chalk the correct figures.", "This DEMON_RANK is Mystified by arcane chalkings and may obey you if you practice the following.", "His conjuration relies upon the correct figures, and this is how they are Chalked."]
+
+
+sacrifice_ritual_intros = ["As DEMON_NAME is a powerful DEMON_RANK in the army of KING_TITLE KING_RANK, you will need to make a sacrifice in order to evoke him.", "DEMON_NAME is a powerful DEMON_RANK in KING_TITLE KING_RANK's army, and demands a sacrificial ritual before he will shew himself.", "To conjure or confer with DEMON_NAME, you will need to carry out a sacrificial ritual.", "Before DEMON_NAME will Shew himself to you, you must peform the following sacrifice.", "DEMON_NAME will not show himself or listen to you, until you have appeased him with the following Sacrifice."]
+
 
 def archaic(word):
     #don't mess with capitals if the whole word is upper
