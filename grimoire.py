@@ -59,7 +59,7 @@ output_final_html(total_html_string)
 
 #Debug and testing bits
 
-kingcount = 0
+"""kingcount = 0
 while kingcount < 6:
     print(text_output.describe_realm(kings_list[kingcount]))
     print(text_output.describe_king(kings_list[kingcount]))
@@ -73,7 +73,7 @@ for demon in demons_list:
     print(text_output.describe_ritual(demon))
     print()
 
-"""
+
 for card in tarot_deck:
-    print(str(card.number) + ". " + str(card.rank))
+
 """

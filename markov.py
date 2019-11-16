@@ -33,16 +33,31 @@ def make_dict(source_list):
 
 def make_text(dictionary, iterations):
     key_list = []
+    phrase_list = []
     output_string = ""
-    for x in dictionary:
-        key_list.append(x)
+    starting_point = "null"
+    iterations_initial_value = iterations
+    for key in dictionary:
+        key_list.append(key)
+    starting_point = random.choice(key_list)
     while iterations > 0:
-        starting_point = ""
-        starting_point = random.choice(key_list)
+
         new_word = random.choice(dictionary.get(starting_point))
         new_phrase = starting_point + " " + new_word + " "
+
         output_string += new_phrase
+
+        #SET NEW STARTING POINT HERE
+        phrase_list = new_phrase.split()
+        if len(phrase_list) == 2:
+            starting_point = phrase_list[1] + " " + phrase_list[2]
+        else:
+            starting_point = random.choice(key_list)
         iterations -= 1
+
+    #Ending it
+    ##if the last char isn't a comma, semicolon or period, iterate again
+    ##OR slice to last punctuation?
     return output_string
 
 def incantation():

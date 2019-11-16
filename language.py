@@ -10,9 +10,12 @@ voices = ["rough","beguiling","melodic","melodious","frightening","fearsome","ma
 king_adj = ["mighty", "powerful", "cruel", "fearsome"]
 trinkets = ["candle", "holy book", "whistle", "thorny twig", "mirror", "polished stone", "rough stone", "small bell", "great bell", "plate of food", "cup of ale", "bloody cloth", "torn rag", "painting fragment", "parchment of a prayer", "priest's collar", "sweet-smelling cloth", "old cloak", "nun's habit", "pie dish", "empty cup", "cracked mirror", "trumpet", "bugle", "lyre", "reed", "dried frog", "lifeless mouse", "old key", "small piece of chain"]
 
+
 #UTILITY IN TEXT GEN
 unmoddable_letters = ["a", "e", "i", "o", "u", "c"]
 vowels = ["a", "e", "i", "o", "u"]
+second_person_pronouns = ["you", "thou"]
+second_person_poss_pronouns = ["your", "thy"]
 
 #REALM RELATED
 north_attribs = ["cold", "earth", "snow",]
@@ -60,7 +63,13 @@ demon_human_form = ["To walk among men or visit you in publick, he will appear a
 demon_planet = ["Though an infernal spirit DEMON_NAME is subject to Heavenly influences. The Planet influencing his actions is PLANET_NAME.", "Under the influence of Celestial bodies, you may find him easier to contact when PLANET_NAME is in Ascendency.", "His Planetary influence is PLANET_NAME.", "DEMON_NAME's Planetary influence is under PLANET_NAME."]
 
 # Used in ritual generation
-dance_ritual_intros = ["To gaine the attention of DEMON_NAME, you will need to Acte out the following motions.", "This demon is most pleased by deliberate motions, and this is how he is conjured.", "DEMON_NAME is a being of Chaos, and will be most pleased with you if you shew a Dance for him.", "Go through the following physical motions to conjure this DEMON_RANK DEMON_NAME"]
+dance_ritual_intros = ["To gaine the attention of DEMON_NAME, you will need to Acte out the following motions.", "This demon is most pleased by deliberate motions, and this is how he is conjured.", "DEMON_NAME is a being of Chaos, and will be most pleased with you if you shew a Dance for him.", "Go through the following physical motions to conjure this DEMON_RANK DEMON_NAME."]
+
+dance_ritual_verbs = ["wave", "wiggle", "gyrate", "push out", "focus upon", "swirl", "shake"]
+dance_ritual_parts = ["left hand", "right hand", "left fist", "right fist", "hands", "fists", "a finger of PRONOUN left hand", "finger of PRONOUN right hand", "left foot", "right foot", "head", "right arm", "left arm", "right leg", "left leg"]
+dance_ritual_first_steps = ["First, VERB POSS_PRONOUN PART, for by this means you shall attract the Demon's attention.", "The first step is to VERB POSS_PRONOUN PART, which shall attract the Demon's attention.", "The first step is to attract the demon's attention. To do so, SECOND_PRONOUN must VERB POSS_PRONOUN PART."]
+dance_ritual_second_steps = ["When this is done, the next thing is to VERB_ONE POSS_PRONOUN PART_ONE while you  VERB_TWO POSS_PRONOUN PART_TWO."]
+dance_ritual_final_steps = ["Continue this last thing until your brow is beaded with sweat, and then lastly VERB POSS_PRONOUN PART in climax."]
 
 
 circle_ritual_intros = ["This demon is most taken with signs and sigils, and will require geomantic encouragement before he will shew himself to you.", "DEMON_NAME is known to be bound by sigils, and to conjure him you will need to prepare your Chalke.", "DEMON_NAME is a creature of infernal Rules and will obey you presently if you Chalk the correct figures.", "This DEMON_RANK is Mystified by arcane chalkings and may obey you if you practice the following.", "His conjuration relies upon the correct figures, and this is how they are Chalked."]

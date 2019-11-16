@@ -127,7 +127,50 @@ def describe_demon(demon):
     return output
 
 def describe_ritual(demon):
-    output = "<p>To invoke the " + demon.rank + " " + demon.name + " say thee following words:</p>\n"
+    output = ""
+    if demon.card.rank == 0 or demon.card.rank == 1:
+        flip = random.randint(0,1)
+        if flip > 0:
+            ritual_type = "dance"
+            #intro
+            output += "<p>" + random.choice(language.dance_ritual_intros) + "</p>\n"
+            #first step
+            output += "<p>" + random.choice(language.dance_ritual_first_steps) + "</p>\n"
+            verb = archaic(random.choice(language.dance_ritual_verbs))
+            poss_pronoun = archaic(random.choice(language.second_person_poss_pronouns))
+            second_pronoun = archaic(random.choice(language.second_person_pronouns))
+            part = archaic(random.choice(language.dance_ritual_parts))
+            output = output.replace("VERB", verb)
+            output = output.replace("PART", part)
+            output = output.replace("POSS_PRONOUN", poss_pronoun)
+            output = output.replace("SECOND_PRONOUN", second_pronoun)
+            #second step
+            output += "<p>" + random.choice(language.dance_ritual_second_steps) + "</p>\n"
+            verb_one = archaic(random.choice(language.dance_ritual_verbs))
+            verb_two = archaic(random.choice(language.dance_ritual_verbs))
+            poss_pronoun = archaic(random.choice(language.second_person_poss_pronouns))
+            part_one = archaic(random.choice(language.dance_ritual_parts))
+            part_two = archaic(random.choice(language.dance_ritual_parts))
+            output = output.replace("VERB_ONE", verb_one)
+            output = output.replace("VERB_TWO", verb_two)
+            output = output.replace("POSS_PRONOUN", poss_pronoun)
+            output = output.replace("PART_ONE", part_one)
+            output = output.replace("PART_TWO", part_two)
+            #third step
+            output += "<p>" + random.choice(language.dance_ritual_final_steps) + "</p>\n"
+            verb = archaic(random.choice(language.dance_ritual_verbs))
+            poss_pronoun = archaic(random.choice(language.second_person_poss_pronouns))
+            part = archaic(random.choice(language.dance_ritual_parts))
+            output = output.replace("VERB", verb)
+            output = output.replace("PART", part)
+            output = output.replace("POSS_PRONOUN", poss_pronoun)            
+        else:
+            ritual_type = "circle"
+            output += "<p>" + random.choice(language.circle_ritual_intros) + "</p>\n"
+    else:
+        ritual_type = "sacrifice"
+        output += "<p>" + random.choice(language.sacrifice_ritual_intros) + "</p>\n"
+    output += "<p>Now at the climax of the ritual, to invoke the " + demon.rank + " " + demon.name + ", say the following words:</p>\n"
     output += "<p>By "+ markov.incantation() + "</p>\n"
     output = output.replace("NAME", demon.name)
     return output
