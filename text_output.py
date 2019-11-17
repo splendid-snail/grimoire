@@ -163,14 +163,47 @@ def describe_ritual(demon):
             part = archaic(random.choice(language.dance_ritual_parts))
             output = output.replace("VERB", verb)
             output = output.replace("PART", part)
-            output = output.replace("POSS_PRONOUN", poss_pronoun)            
+            output = output.replace("POSS_PRONOUN", poss_pronoun)
         else:
             ritual_type = "circle"
             output += "<p>" + random.choice(language.circle_ritual_intros) + "</p>\n"
+            #first step
+            output += "<p>" + random.choice(language.circle_ritual_first_steps) + "</p>\n"
+            #second step
+            output += "<p>" + random.choice(language.circle_ritual_second_steps)
+            size = str(random.randint(4,10))
+            colour = archaic(random.choice(language.colours))
+            output = output.replace("SIZE", size)
+            output = output.replace("COLOUR", colour)
+            hands = ["left", "right"]
+            flip = random.randint(0,1)
+            if flip > 0:
+                output += " You must do this with your " + archaic(random.choice(hands)) + " hand, or "
+                consequence = random.choice(language.consequences_list)
+                if "ANIMAL" in consequence:
+                    animal = archaic(random.choice(language.animals))
+                    our_article = article(animal)
+                    consequence = consequence.replace("ANIMAL", animal)
+                    consequence = consequence.replace("ARTICLE", our_article)
+                if "HUMAN_FORM" in consequence:
+                    human_form = archaic(random.choice(language.human_forms))
+                    human_description = archaic(random.choice(language.human_descriptions))
+                    our_article = article(human_description)
+                    consequence = consequence.replace("HUMAN_DESCRIPTION", human_description)
+                    consequence = consequence.replace("HUMAN_FORM", human_form)
+                    consequence = consequence.replace("ARTICLE", our_article)
+                output += consequence + "."
+            output += "</p>\n"
+            #third step
+
+
     else:
         ritual_type = "sacrifice"
         output += "<p>" + random.choice(language.sacrifice_ritual_intros) + "</p>\n"
     output += "<p>Now at the climax of the ritual, to invoke the " + demon.rank + " " + demon.name + ", say the following words:</p>\n"
     output += "<p>By "+ markov.incantation() + "</p>\n"
-    output = output.replace("NAME", demon.name)
+    output = output.replace("DEMON_NAME", demon.name)
+    output = output.replace("DEMON_RANK", demon.rank)
+    output = output.replace("KING_NAME", demon.king.name)
+    output = output.replace("KING_TITLE", demon.king.title)
     return output

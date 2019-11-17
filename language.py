@@ -16,6 +16,7 @@ unmoddable_letters = ["a", "e", "i", "o", "u", "c"]
 vowels = ["a", "e", "i", "o", "u"]
 second_person_pronouns = ["you", "thou"]
 second_person_poss_pronouns = ["your", "thy"]
+colours = ["red", "green", "blue", "yellow", "black", "white"]
 
 #REALM RELATED
 north_attribs = ["cold", "earth", "snow",]
@@ -56,7 +57,7 @@ high_rank_intros = ["He is a mighty RANK of this realm, leading the other spirit
 demon_voices = ["If he speaketh to you, it shall be in a VOICE_TYPE voice.", "He speaks in a VOICE_TYPE voice.", "His voice soundeth VOICE_TYPE when you call on him.", "If he speaketh to you, it is in a VOICE_TYPE voice.", "His voice is strange and VOICE_TYPE.", "His voyce is VOICE_TYPE.", "You shall hear him speak in a VOICE_TYPE voice."]
 
 demon_animal_form = ["When in disguise he goes about as ARTICLE ANIMAL", "He may appear first as ARTICLE ANIMAL", "He has shewn himself as ARTICLE ANIMAL", "You may see him firste as ARTICLE ANIMAL", "He disguises himself as ARTICLE ANIMAL"]
-demon_spirit_form = [", and in his spirit form he may appear as ARTICLE SPIRIT_FORM.", ", and his demonic form can be compared to that of ARTICLE SPIRIT_FORM.", " and in the spirit realm as ARTICLE SPIRIT_FORM.", " and he shows himself to initiates as ARTICLE SPIRIT_FORM."]
+demon_spirit_form = [", and in his spirit form he may appear as ARTICLE SPIRIT_FORM.", ", and his demonic form is like to that of ARTICLE SPIRIT_FORM.", " and in the spirit realm as ARTICLE SPIRIT_FORM.", " and he shows himself to initiates as ARTICLE SPIRIT_FORM."]
 
 demon_human_form = ["To walk among men or visit you in publick, he will appear as ARTICLE HUMAN_FORM.", "To go among men he appeareth as ARTICLE HUMAN_FORM.", "To walk among men he appeareth as ARTICLE HUMAN_FORM.", "He also appeareth in the form of ARTICLE HUMAN_FORM.", "He may also come to you as ARTICLE HUMAN_FORM to drive a bargain.", "He may come forth in human forme as ARTICLE HUMAN_FORM.", "He may appeare to you as ARTICLE HUMAN_FORM.", "He may appeare to you as ARTICLE HUMAN_FORM who shall beguile you.", "He can bewitch men into seeing him as ARTICLE HUMAN_FORM.", "He goes about unknown among men as ARTICLE HUMAN_FORM."]
 
@@ -66,16 +67,18 @@ demon_planet = ["Though an infernal spirit DEMON_NAME is subject to Heavenly inf
 dance_ritual_intros = ["To gaine the attention of DEMON_NAME, you will need to Acte out the following motions.", "This demon is most pleased by deliberate motions, and this is how he is conjured.", "DEMON_NAME is a being of Chaos, and will be most pleased with you if you shew a Dance for him.", "Go through the following physical motions to conjure this DEMON_RANK DEMON_NAME."]
 
 dance_ritual_verbs = ["wave", "wiggle", "gyrate", "push out", "focus upon", "swirl", "shake"]
-dance_ritual_parts = ["left hand", "right hand", "left fist", "right fist", "hands", "fists", "a finger of PRONOUN left hand", "finger of PRONOUN right hand", "left foot", "right foot", "head", "right arm", "left arm", "right leg", "left leg"]
+dance_ritual_parts = ["left hand", "right hand", "left fist", "right fist", "hands", "fists", "a finger of POSS_PRONOUN left hand", "finger of POSS_PRONOUN right hand", "left foot", "right foot", "head", "right arm", "left arm", "right leg", "left leg"]
 dance_ritual_first_steps = ["First, VERB POSS_PRONOUN PART, for by this means you shall attract the Demon's attention.", "The first step is to VERB POSS_PRONOUN PART, which shall attract the Demon's attention.", "The first step is to attract the demon's attention. To do so, SECOND_PRONOUN must VERB POSS_PRONOUN PART."]
 dance_ritual_second_steps = ["When this is done, the next thing is to VERB_ONE POSS_PRONOUN PART_ONE while you  VERB_TWO POSS_PRONOUN PART_TWO."]
 dance_ritual_final_steps = ["Continue this last thing until your brow is beaded with sweat, and then lastly VERB POSS_PRONOUN PART in climax."]
 
 
-circle_ritual_intros = ["This demon is most taken with signs and sigils, and will require geomantic encouragement before he will shew himself to you.", "DEMON_NAME is known to be bound by sigils, and to conjure him you will need to prepare your Chalke.", "DEMON_NAME is a creature of infernal Rules and will obey you presently if you Chalk the correct figures.", "This DEMON_RANK is Mystified by arcane chalkings and may obey you if you practice the following.", "His conjuration relies upon the correct figures, and this is how they are Chalked."]
+circle_ritual_intros = ["This demon is most taken with signs and sigils, and will require geomantic encouragement before he will shew himself to you.", "DEMON_NAME is known to be bound by sigils, and to conjure him you will need to prepare your Chalke.", "DEMON_NAME is a creature of infernal Rules and will obey you presently if you Chalk the correct figures.", "This DEMON_RANK is Mystified by arcane chalkings and may obey you if you practice the following.", "His conjuration relies upon the correct figures, and this is how they are Chalked.", "To summon the DEMON_RANK DEMON_NAME, you will need to carefully construct the following figures.", "To summon DEMON_NAME thou must mark the following signs on the Floor.", "To raise his spirit you will need to Chalk the following.", "Gaining his attention relies on chalking and invoking the following."]
+circle_ritual_first_steps = ["First, clean and sweep a Roome, as high as possible in the house and as far away from other people.", "First you must prepare a space. Choose a quiet and secluded room in a Family house.", "You will need a warm and closed room, without windows of any kind, to perform his Rite."]
+circle_ritual_second_steps = ["With the room prepared, take a COLOUR chalk or Pencile and enscribe a circle of SIZE feet upon the floor.", "Take now a COLOUR chalk and draw a circle of SIZE feet upon the floor.", "This found, take thee a COLOUR chalk or other staine and draw a circle of exactly SIZE feet upon the floor.", "Next is to take a COLOUR chalk and draw a circle of SIZE feet upon the floor.", "Next, for the required Circle, take a COLOUR chalk and inscribe one of SIZE feet."]
 
 
-sacrifice_ritual_intros = ["As DEMON_NAME is a powerful DEMON_RANK in the army of KING_TITLE KING_RANK, you will need to make a sacrifice in order to evoke him.", "DEMON_NAME is a powerful DEMON_RANK in KING_TITLE KING_RANK's army, and demands a sacrificial ritual before he will shew himself.", "To conjure or confer with DEMON_NAME, you will need to carry out a sacrificial ritual.", "Before DEMON_NAME will Shew himself to you, you must peform the following sacrifice.", "DEMON_NAME will not show himself or listen to you, until you have appeased him with the following Sacrifice."]
+sacrifice_ritual_intros = ["As DEMON_NAME is a powerful DEMON_RANK in the army of KING_TITLE KING_NAME, you will need to make a sacrifice in order to evoke him.", "DEMON_NAME is a powerful DEMON_RANK in KING_TITLE KING_NAME's army, and demands a sacrificial ritual before he will shew himself.", "To conjure or confer with DEMON_NAME, you will need to carry out a sacrificial ritual.", "Before DEMON_NAME will Shew himself to you, you must peform the following sacrifice.", "DEMON_NAME will not show himself or listen to you, until you have appeased him with the following Sacrifice."]
 
 
 def archaic(word):
