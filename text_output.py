@@ -2,6 +2,8 @@ import language
 import random
 import markov
 from language import archaic, article, ordinal
+from html_output import paragraph
+from name import magic_word
 
 def set_realm_attribs(realm_attribs, output):
         first_attrib = random.choice(realm_attribs)
@@ -133,7 +135,7 @@ def describe_ritual(demon):
         if flip > 0:
             ritual_type = "dance"
             #intro
-            output += "<p>" + random.choice(language.dance_ritual_intros) + "</p>\n"
+            output += paragraph(random.choice(language.dance_ritual_intros))
             #first step
             output += "<p>" + random.choice(language.dance_ritual_first_steps) + "</p>\n"
             verb = archaic(random.choice(language.dance_ritual_verbs))
@@ -153,9 +155,9 @@ def describe_ritual(demon):
             part_two = archaic(random.choice(language.dance_ritual_parts))
             output = output.replace("VERB_ONE", verb_one)
             output = output.replace("VERB_TWO", verb_two)
-            output = output.replace("POSS_PRONOUN", poss_pronoun)
             output = output.replace("PART_ONE", part_one)
             output = output.replace("PART_TWO", part_two)
+            output = output.replace("POSS_PRONOUN", poss_pronoun)
             #third step
             output += "<p>" + random.choice(language.dance_ritual_final_steps) + "</p>\n"
             verb = archaic(random.choice(language.dance_ritual_verbs))
@@ -164,6 +166,7 @@ def describe_ritual(demon):
             output = output.replace("VERB", verb)
             output = output.replace("PART", part)
             output = output.replace("POSS_PRONOUN", poss_pronoun)
+            output = output.replace("MAGIC_WORD", magic_word())
         else:
             ritual_type = "circle"
             output += "<p>" + random.choice(language.circle_ritual_intros) + "</p>\n"
@@ -195,6 +198,8 @@ def describe_ritual(demon):
                 output += consequence + "."
             output += "</p>\n"
             #third step
+            output += "<p>" + random.choice(language.circle_ritual_final_steps)
+            output += "</p>\n"
 
 
     else:

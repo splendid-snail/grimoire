@@ -1,12 +1,23 @@
 import random
 
+first_syl = ["A", "Na", "Mo", "Ai", "Ba", "Be", "Sa", "E", "Bo", "Gu", "Bu", "Le", "Ba" , "Ar", "Ger", "Dar", "Da", "Cha", "Char", "Haz", "Ha", "He", "Her", "Hor", "Bor", "Ado", "Camu"]
+cons = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "l", "m", "n", "p", "q", "r", "s", "t", "th", "v", "w", "x", "y", "z"]
+vowel = ["a", "e", "i", "o", "u", "y"]
+middle_syl = ["az", "mor", "oth", "al", "el", "an"]
+last_syl = ["oth", "eros", "eos", "os", "ar", "son", "mon", "der", "aye", "oin", "er", "alam", "ael", "res", "iel"]
+
+
+
+def magic_word():
+    syllables = random.randint(1,3)
+    word = random.choice(first_syl) + random.choice(cons)
+    while syllables > 0:
+        syllable = random.choice(middle_syl)
+        word += syllable
+        syllables -= 1
+    return word
 
 def new(names_list):
-    first_syl = ["A", "Na", "Mo", "Ai", "Ba", "Be", "Sa", "E", "Bo", "Gu", "Bu", "Le", "Ba" , "Ar", "Ger", "Dar", "Da", "Cha", "Char", "Haz", "Ha", "He", "Her", "Hor", "Bor", "Ado", "Camu"]
-    cons = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "l", "m", "n", "p", "q", "r", "s", "t", "th", "v", "w", "x", "y", "z"]
-    vowel = ["a", "e", "i", "o", "u", "y"]
-    middle_syl = ["az", "mor", "oth", "al", "el", "an"]
-    last_syl = ["oth", "eros", "eos", "os", "ar", "son", "mon", "der", "aye", "oin", "er", "alam", "ael", "res", "iel"]
     roll = random.randint(0,99)
     """
     0-9: Shortish name
