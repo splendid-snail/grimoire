@@ -17,12 +17,13 @@ def generate_realms(kings_list, demons_list):
         output += "<p>" + text_output.describe_realm(king) + "</p>\n"
         output += "<h3>Of this realm's King</h3>\n"
         output += "</p>" + text_output.describe_king(king) + "</p>\n"
+        output += "<hr>\n"
         output += "<h3>Of this realm's Demons</h3>\n"
         for demon in demons_list:
             if demon.realm == king.realm:
                 output += "<p>" + text_output.describe_demon(demon) + "</p>\n"
                 output += "<p>" + text_output.describe_ritual(demon) + "</p>\n"
-        output += "<hr>\n"
+                output += "<hr>\n"
     return output
 
 def output_final_html(total_html_string):

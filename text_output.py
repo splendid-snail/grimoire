@@ -133,7 +133,7 @@ def describe_ritual(demon):
     if demon.card.rank == 0 or demon.card.rank == 1:
         flip = random.randint(0,1)
         if flip > 0:
-            ritual_type = "dance"
+            #DANCE RITUAL
             #intro
             output += paragraph(random.choice(language.dance_ritual_intros))
             #first step
@@ -168,7 +168,7 @@ def describe_ritual(demon):
             output = output.replace("POSS_PRONOUN", poss_pronoun)
             output = output.replace("MAGIC_WORD", magic_word())
         else:
-            ritual_type = "circle"
+            #CIRCLE RITUAL
             output += "<p>" + random.choice(language.circle_ritual_intros) + "</p>\n"
             #first step
             output += "<p>" + random.choice(language.circle_ritual_first_steps) + "</p>\n"
@@ -198,15 +198,55 @@ def describe_ritual(demon):
                 output += consequence + "."
             output += "</p>\n"
             #third step
-            output += "<p>" + random.choice(language.circle_ritual_final_steps)
-            output += "</p>\n"
-
-
+            output += paragraph(random.choice(language.circle_ritual_final_steps))
+            word_one = magic_word()
+            word_two = magic_word()
+            word_three = magic_word()
+            word_four = magic_word()
+            output = output.replace("WORD_ONE", word_one)
+            output = output.replace("WORD_TWO", word_two)
+            output = output.replace("WORD_THREE", word_three)
+            output = output.replace("WORD_FOUR", word_four)
     else:
-        ritual_type = "sacrifice"
-        output += "<p>" + random.choice(language.sacrifice_ritual_intros) + "</p>\n"
-    output += "<p>Now at the climax of the ritual, to invoke the " + demon.rank + " " + demon.name + ", say the following words:</p>\n"
-    output += "<p>By "+ markov.incantation() + "</p>\n"
+        #SACRIFICE RITUAL
+        #Intro
+        output += paragraph(random.choice(language.sacrifice_ritual_intros))
+        output += paragraph(random.choice(language.sacrifice_animal_intros))
+        animal = archaic(random.choice(language.sacrifice_animals))
+        this_article = archaic(article(animal))
+        output = output.replace("ARTICLE", this_article)
+        output = output.replace("ANIMAL", animal)
+
+        #First step - place
+        output += paragraph(random.choice(language.sacrifice_ritual_first_steps))
+        place = archaic(random.choice(language.sacrifice_places))
+        our_article = archaic(article(place))
+        output = output.replace("ARTICLE", our_article)
+        output = output.replace("SACRIFICE_PLACE", place)
+        #Second step - altar
+        output += paragraph(random.choice(language.sacrifice_ritual_second_steps))
+        altar = archaic(random.choice(language.altar_types))
+        output = output.replace("ALTAR_TYPE", altar)
+        #Third step - get the tool and the animal together
+        output += paragraph(random.choice(language.sacrifice_ritual_third_steps))
+        tool = archaic(random.choice(language.sacrifice_tools))
+        our_article = archaic(article(tool))
+        output = output.replace("ANIMAL", animal)
+        output = output.replace("TOOL", tool)
+        output = output.replace("ARTICLE", our_article)
+        #Song step - because why not
+        output += paragraph(random.choice(language.sacrifice_ritual_songs))
+        new_magic_word = magic_word()
+        output = output.replace("MAGIC_WORD", new_magic_word)
+        #And the climax
+        output += paragraph(random.choice(language.sacrifice_ritual_climax))
+        output = output.replace("ANIMAL", animal)
+        output = output.replace("TOOL", tool)
+        output = output.replace("DEMON_NAME", demon.name)
+        output = output.replace("DEMON_RANK", demon.rank)
+    #Invocation begins
+    output += "<p>Now at this Climax of the ritual, to invoke the " + demon.rank + " " + demon.name + " intone the following:</p>\n"
+    output += "<p>By "+ markov.incantation(50) + "</p>\n"
     output = output.replace("DEMON_NAME", demon.name)
     output = output.replace("DEMON_RANK", demon.rank)
     output = output.replace("KING_NAME", demon.king.name)
