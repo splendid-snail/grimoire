@@ -16,6 +16,16 @@ vowels = ["a", "e", "i", "o", "u"]
 second_person_pronouns = ["you", "thou"]
 second_person_poss_pronouns = ["your", "thy"]
 colours = ["red", "green", "blue", "yellow", "black", "white"]
+true_adj = ["truthful", "truthy", "right", "correct", "appropriate"]
+false_adj = ["false", "falsy", "wrong", "incorrect"]
+positive_adj = ["good", "great", "true", "lovely", "strong", "fair"]
+negative_adj = ["bad", "awful", "weak", "false", "ugly", "unfair", "silly", "conceited"]
+
+#INTRO related
+general_intro = ["This book will show you the TRUE_ADJ and TRUE_ADJ means of conjuring spirits POS_ADJ and NEG_ADJ_1, although it must be said that most of them indeed are NEG_ADJ_1 and great care must be taken in contacting and summoning them. Indeed, before you would do such a thing, it is important that you read and mark well the POS_ADJ instructions in this booke, for only in following them to the Letter shall you avoid the FALSE_ADJ and the risk of CONSEQUENCE."]
+
+intro_consequences = ["utter dissolution by Demonic forces", "your absolute destruction at the talons of spirits Vicious.", "being destroyed utterly by forces beyond your comprehension."]
+
 
 #REALM RELATED
 north_attribs = ["cold", "earth", "snow",]
@@ -59,6 +69,10 @@ demon_animal_form = ["When in disguise he goes about as ARTICLE ANIMAL", "He may
 demon_spirit_form = [", and in his spirit form he may appear as ARTICLE SPIRIT_FORM.", ", and his demonic form is like to that of ARTICLE SPIRIT_FORM.", " and in the spirit realm as ARTICLE SPIRIT_FORM.", " and he shows himself to initiates as ARTICLE SPIRIT_FORM."]
 
 demon_human_form = ["To walk among men or visit you in publick, he will appear as ARTICLE HUMAN_FORM.", "To go among men he appeareth as ARTICLE HUMAN_FORM.", "To walk among men he appeareth as ARTICLE HUMAN_FORM.", "He also appeareth in the form of ARTICLE HUMAN_FORM.", "He may also come to you as ARTICLE HUMAN_FORM to drive a bargain.", "He may come forth in human forme as ARTICLE HUMAN_FORM.", "He may appeare to you as ARTICLE HUMAN_FORM.", "He may appeare to you as ARTICLE HUMAN_FORM who shall beguile you.", "He can bewitch men into seeing him as ARTICLE HUMAN_FORM.", "He goes about unknown among men as ARTICLE HUMAN_FORM."]
+
+demon_commands_low = ["As a humble DEMON_RANK in the forces of his Lord KING_NAME, DEMON_NAME commands a smalle company of SUM spirits.", "Being a mere DEMON_RANK in KING_NAME's forces, he has about him just SUM loyal familiars.", "As a DEMON_RANK, DEMON_NAME commands SUM spirits which may do your bidding.", "There are SUM spirits in attendance of him, who may do your bidding."]
+demon_commands_mid = ["The DEMON_RANK DEMON_NAME commands a moderate force of SUM spirits who he may show you."]
+demon_commands_high = ["DEMON_NAME commands a host of SUM spirits and demons, whom he may place at thy command."]
 
 demon_planet = ["Though an infernal spirit DEMON_NAME is subject to Heavenly influences. The Planet influencing his actions is PLANET_NAME.", "Under the influence of Celestial bodies, you may find him easier to contact when PLANET_NAME is in Ascendency.", "His Planetary influence is PLANET_NAME.", "DEMON_NAME's Planetary influence is under PLANET_NAME."]
 

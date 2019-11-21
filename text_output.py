@@ -5,6 +5,30 @@ from language import archaic, article, ordinal
 from html_output import paragraph
 from name import magic_word
 
+def generate_subtitle():
+    first_words = ["Detailing the", "Being the", "Approaching the"]
+    artes_adj = ["Ceremonial", "Arcane", "Lost", "Occult"]
+    artes_noun = ["Art of", "Practice of", "Method for", "Path to"]
+    artes_verb = ["Commanding", "Controlling", "Conjuring", "Drawing Forthe", "Evoking"]
+    spirits = ["Spirits", "Spiritual Formes", "Beings", "Daemons"]
+    final = ["of Divers Kindes", "of All Sortes", "Completely"]
+    subtitle = random.choice(first_words) + " " + random.choice(artes_adj) + " " + random.choice(artes_noun) + " " + random.choice(artes_verb) + " " + random.choice(spirits) + " " + random.choice(final) + "\n"
+    return subtitle
+
+def write_intro():
+    output = random.choice(language.general_intro)
+    while "POS_ADJ" in output:
+        output = output.replace("POS_ADJ", archaic(random.choice(language.positive_adj)), 1)
+    while "TRUE_ADJ" in output:
+        output = output.replace("TRUE_ADJ", archaic(random.choice(language.true_adj)), 1)
+    while "NEG_ADJ_1" in output:
+        output = output.replace("NEG_ADJ_1", archaic(random.choice(language.negative_adj)))
+    while "FALSE_ADJ" in output:
+        output = output.replace("FALSE_ADJ", archaic(random.choice(language.false_adj)), 1)
+    while "CONSEQUENCE" in output:
+        output = output.replace("CONSEQUENCE", random.choice(language.intro_consequences))
+    return output
+
 def set_realm_attribs(realm_attribs, output):
         first_attrib = random.choice(realm_attribs)
         second_attrib = first_attrib
@@ -88,9 +112,9 @@ def demon_forms(demon):
 
 def demon_skills(demon):
     output = " " + random.choice(language.he_can_intros)
-    if demon.rank == 0:
+    if demon.card.rank == 0:
         output += random.choice(language.low_rank_skills)
-    elif demon.rank == 1:
+    elif demon.card.rank == 1:
         output += random.choice(language.mid_rank_skills)
     else:
         output += random.choice(language.high_rank_skills)
@@ -98,13 +122,31 @@ def demon_skills(demon):
     return output
 
 def demon_rank(demon):
-    if demon.rank == 0:
+    if demon.card.rank == 0:
         output = random.choice(language.low_rank_intros)
-    elif demon.rank == 1:
+    elif demon.card.rank == 1:
         output = random.choice(language.mid_rank_intros)
     else:
         output = random.choice(language.high_rank_intros)
     output = output.replace("RANK", demon.rank)
+    output = output.replace("KING_NAME", demon.king.name)
+    return output
+
+def demon_commands(demon):
+    if demon.card.rank == 0:
+        output = random.choice(language.demon_commands_low)
+        sum = str(random.randint(2,5))
+        output = output.replace("SUM", sum)
+    elif demon.card.rank == 1:
+        output = random.choice(language.demon_commands_mid)
+        sum = str(random.randint(10,30))
+        output = output.replace("SUM", sum)
+    else:
+        output = random.choice(language.demon_commands_high)
+        sum = str(random.randint(30,102))
+        output = output.replace("SUM", sum)
+    output = output.replace("DEMON_NAME", demon.name)
+    output = output.replace("DEMON_RANK", demon.rank)
     output = output.replace("KING_NAME", demon.king.name)
     return output
 
@@ -118,6 +160,8 @@ def describe_demon(demon):
     output = demon_intro(demon)
     output += ". "
     output += demon_rank(demon)
+    output += " "
+    output += demon_commands(demon)
     output += " "
     output += demon_voice(demon)
     output += " "
@@ -169,11 +213,11 @@ def describe_ritual(demon):
             output = output.replace("MAGIC_WORD", magic_word())
         else:
             #CIRCLE RITUAL
-            output += "<p>" + random.choice(language.circle_ritual_intros) + "</p>\n"
+            output += paragraph(random.choice(language.circle_ritual_intros))
             #first step
-            output += "<p>" + random.choice(language.circle_ritual_first_steps) + "</p>\n"
+            output += paragraph(random.choice(language.circle_ritual_first_steps))
             #second step
-            output += "<p>" + random.choice(language.circle_ritual_second_steps)
+            output += paragraph(random.choice(language.circle_ritual_second_steps))
             size = str(random.randint(4,10))
             colour = archaic(random.choice(language.colours))
             output = output.replace("SIZE", size)
