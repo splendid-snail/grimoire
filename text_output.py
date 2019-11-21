@@ -112,12 +112,7 @@ def demon_forms(demon):
 
 def demon_skills(demon):
     output = " " + random.choice(language.he_can_intros)
-    if demon.card.rank == 0:
-        output += random.choice(language.low_rank_skills)
-    elif demon.card.rank == 1:
-        output += random.choice(language.mid_rank_skills)
-    else:
-        output += random.choice(language.high_rank_skills)
+    output += demon.skill
     output += "."
     return output
 
@@ -157,7 +152,8 @@ def demon_planet(demon):
     return output
 
 def describe_demon(demon):
-    output = demon_intro(demon)
+    output = "<div id=\"" + demon.name + "\">"
+    output += demon_intro(demon)
     output += ". "
     output += demon_rank(demon)
     output += " "
@@ -170,6 +166,7 @@ def describe_demon(demon):
     output += demon_skills(demon)
     output += " "
     output += demon_planet(demon)
+    output += "</div>"
     return output
 
 def describe_ritual(demon):

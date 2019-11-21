@@ -28,7 +28,7 @@ intro_consequences = ["utter dissolution by Demonic forces", "your absolute dest
 
 
 #REALM RELATED
-north_attribs = ["cold", "earth", "snow",]
+north_attribs = ["cold things", "earth", "snow",]
 east_attribs = ["air", "clouds", "things of the intellect", "communication", "balance", "mists"]
 south_attribs = ["fire", "creativity", "danger", "lively spirits","flames", "thrills"]
 west_attribs = ["water", "beauty", "waves", "mysterious ripplings", "froth", "bubble"]
@@ -88,7 +88,7 @@ dance_ritual_final_steps = ["Continue this last thing until your brow is beaded 
 
 circle_ritual_intros = ["This demon is most taken with signs and sigils, and will require geomantic encouragement before he will shew himself to you.", "DEMON_NAME is known to be bound by sigils, and to conjure him you will need to prepare your Chalke.", "DEMON_NAME is a creature of infernal Rules and will obey you presently if you Chalk the correct figures.", "This DEMON_RANK is Mystified by arcane chalkings and may obey you if you practice the following.", "His conjuration relies upon the correct figures, and this is how they are Chalked.", "To summon the DEMON_RANK DEMON_NAME, you will need to carefully construct the following figures.", "To summon DEMON_NAME thou must mark the following signs on the Floor.", "To raise his spirit you will need to Chalk the following.", "Gaining his attention relies on chalking and invoking the following."]
 circle_ritual_first_steps = ["First, clean and sweep a Roome, as high as possible in the house and as far away from other people.", "First you must prepare a space. Choose a quiet and secluded room in a Family house.", "You will need a warm and closed room, without windows of any kind, to perform his Rite."]
-circle_ritual_second_steps = ["With the room prepared, take a COLOUR chalk or Pencile and enscribe a circle of SIZE feet upon the floor.", "Take now a COLOUR chalk and draw a circle of SIZE feet upon the floor.", "This found, take thee a COLOUR chalk or other staine and draw a circle of exactly SIZE feet upon the floor.", "Next is to take a COLOUR chalk and draw a circle of SIZE feet upon the floor.", "Next, for the required Circle, take a COLOUR chalk and inscribe one of SIZE feet."]
+circle_ritual_second_steps = ["With the room prepared, take a COLOUR chalk or Pencile and enscribe a circle of SIZE feet upon the floor.", "Take now a COLOUR chalk and draw a circle of SIZE feet upon the floor.", "This found, take thee a COLOUR chalk or other staine and draw a circle of exactly SIZE feet upon the floor.", "Next is to take a COLOUR chalk and draw a circle of SIZE feet upon the floor.", "Next, for the required Circle, take a COLOUR chalk and inscribe a Diameter of SIZE feet."]
 circle_ritual_final_steps = ["All this done, around the perimeter of the Circle, write the following words respectively at the points North, South, East and West: <strong>WORD_ONE, WORD_TWO, WORD_THREE, WORD_FOUR</strong>."]
 
 

@@ -1,6 +1,6 @@
 import name
 import random
-from language import archaic, article, spirit_forms, human_descriptions, human_forms, planets, animals, trinkets, king_continue, king_consequence, voices
+from language import archaic, article, low_rank_skills, mid_rank_skills, high_rank_skills, spirit_forms, human_descriptions, human_forms, planets, animals, trinkets, king_continue, king_consequence, voices
 
 class Demon:
     def __init__(self, name, card, king):
@@ -13,10 +13,13 @@ class Demon:
         self.realm = king.realm
         if card.rank == 0:
             self.rank = random.choice(low_ranks)
+            self.skill = random.choice(low_rank_skills)
         elif card.rank == 1:
             self.rank = random.choice(mid_ranks)
+            self.skill = random.choice(mid_rank_skills)
         else:
             self.rank = random.choice(upper_ranks)
+            self.skill = random.choice(high_rank_skills)
         #insert twisted sword easter egg here
         self.animal_form = random.choice(animals)
         self.human_form = random.choice(human_descriptions) + " " + random.choice(human_forms)
