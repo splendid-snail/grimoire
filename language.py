@@ -8,7 +8,7 @@ spirit_forms = ["angel","flame", "fire", "flaming fire","centaur","chimera","coc
 planets = ["Mercury", "Venus", "Earth", "Mars", "Saturn", "Uranus", "Neptune", "Pluto"]
 voices = ["rough","beguiling","melodic","melodious","frightening","fearsome","mad","loud","oily","wheedling","reedy","pleading","desperate", "shaky", "booming"]
 king_adj = ["mighty", "powerful", "cruel", "fearsome"]
-trinkets = ["candle", "holy book", "whistle", "thorny twig", "mirror", "polished stone", "rough stone", "small bell", "great bell", "plate of food", "cup of ale", "bloody cloth", "torn rag", "painting fragment", "parchment of a prayer", "priest's collar", "sweet-smelling cloth", "old cloak", "nun's habit", "pie dish", "empty cup", "cracked mirror", "trumpet", "bugle", "lyre", "reed", "dried frog", "lifeless mouse", "old key", "small piece of chain"]
+trinkets = ["candle", "holy book", "tin whistle", "thorny twig", "mirror", "polished stone", "rough stone", "small bell", "great bell", "plate of food", "cup of ale", "bloody cloth", "torn rag", "painting fragment", "parchment of a prayer", "priest's collar", "sweet-smelling cloth", "old cloak", "nun's habit", "pie dish", "dead cat", "empty cup", "cracked mirror", "trumpet", "bugle", "lyre", "reed", "dried frog", "lifeless mouse", "old key", "small piece of chain"]
 
 #UTILITY IN TEXT GEN
 unmoddable_letters = ["a", "e", "i", "o", "u", "c"]
@@ -20,6 +20,7 @@ true_adj = ["truthful", "truthy", "right", "correct", "appropriate"]
 false_adj = ["false", "falsy", "wrong", "incorrect"]
 positive_adj = ["good", "great", "true", "lovely", "strong", "fair"]
 negative_adj = ["bad", "awful", "weak", "false", "ugly", "unfair", "silly", "conceited"]
+compass_points = ["north", "east", "south", "west", "centre"]
 
 #INTRO related
 general_intro = ["This book will show you the TRUE_ADJ and TRUE_ADJ means of conjuring spirits POS_ADJ and NEG_ADJ_1, although it must be said that most of them indeed are NEG_ADJ_1 and great care must be taken in contacting and summoning them. Indeed, before you would do such a thing, it is important that you read and mark well the POS_ADJ instructions in this booke, for only in following them to the Letter shall you avoid the FALSE_ADJ and the risk of CONSEQUENCE."]
@@ -74,21 +75,28 @@ demon_commands_low = ["As a humble DEMON_RANK in the forces of his Lord KING_NAM
 demon_commands_mid = ["The DEMON_RANK DEMON_NAME commands a moderate force of SUM spirits who he may show you."]
 demon_commands_high = ["DEMON_NAME commands a host of SUM spirits and demons, whom he may place at thy command."]
 
+demon_trinket_bits = ["Before attempting to summon the DEMON_RANK DEMON_NAME you will need to find ARTICLE TRINKET and keep it about you.", "In order to conjure and evoke the DEMON_RANK DEMON_NAME, you must make sure you have with you ARTICLE TRINKET, for it shall be required in the summoning.", "Necessary for the summoning or evocation of DEMON_NAME the DEMON_RANK shall be ARTICLE TRINKET, which shall please DEMON_NAME greatly."]
+
 demon_planet = ["Though an infernal spirit DEMON_NAME is subject to Heavenly influences. The Planet influencing his actions is PLANET_NAME.", "Under the influence of Celestial bodies, you may find him easier to contact when PLANET_NAME is in Ascendency.", "His Planetary influence is PLANET_NAME.", "DEMON_NAME's Planetary influence is under PLANET_NAME."]
 
 # Used in ritual generation
+pre_ritual_prep = ["Before attempting to summon the DEMON_RANK DEMON_NAME, you will need to PREP and PREP. You will also need to prepare the TRINKET.", "Before summoning DEMON_RANK DEMON_NAME, PREP and PREP and obtain a useful TRINKET.", "Before the ritual can begin you must PREP and PREP and get the TRINKET."]
+prep_options = ["bathe thyself thoroughly", "light fragrant incense", "prepare several candles", "meditate for a day", "spit at a church"]
+
+
 dance_ritual_intros = ["To gaine the attention of DEMON_NAME, you will need to Acte out the following motions.", "This demon is most pleased by deliberate motions, and this is how he is conjured.", "DEMON_NAME is a being of Chaos, and will be most pleased with you if you shew a Dance for him.", "Go through the following physical motions to conjure this DEMON_RANK DEMON_NAME."]
 
 dance_ritual_verbs = ["wave", "wiggle", "gyrate", "push out", "focus upon", "swirl", "shake"]
 dance_ritual_parts = ["left hand", "right hand", "left fist", "right fist", "hands", "fists", "finger of POSS_PRONOUN left hand", "finger of POSS_PRONOUN right hand", "left foot", "right foot", "head", "right arm", "left arm", "right leg", "left leg"]
 dance_ritual_first_steps = ["First, VERB POSS_PRONOUN PART, for by this means you shall attract the Demon's attention.", "The first step is to VERB POSS_PRONOUN PART, which shall attract the Demon's attention.", "The first step is to attract the demon's attention. To do so, SECOND_PRONOUN must VERB POSS_PRONOUN PART."]
 dance_ritual_second_steps = ["When this is done, the next thing is to VERB_ONE POSS_PRONOUN PART_ONE while you  VERB_TWO POSS_PRONOUN PART_TWO."]
-dance_ritual_final_steps = ["Continue this last thing until your brow is beaded with sweat, and then lastly VERB POSS_PRONOUN PART in climax, while you chant \"MAGIC_WORD, MAGIC_WORD\".", "Keep doing this until you reach a frenzy, and finally VERB POSS_PRONOUN PART while you chant \"MAGIC_WORD, MAGIC_WORD\"."]
+dance_ritual_final_steps = ["Continue this last thing until your brow is beaded with sweat, and then lastly VERB POSS_PRONOUN PART in climax, while you chant \"MAGIC_WORD, MAGIC_WORD\", and all the while hold the TRINKET close about you.", "Keep doing this until you reach a frenzy, keeping the TRINKET held close about you at all times, and finally VERB POSS_PRONOUN PART while you chant \"MAGIC_WORD, MAGIC_WORD\"."]
 
 
 circle_ritual_intros = ["This demon is most taken with signs and sigils, and will require geomantic encouragement before he will shew himself to you.", "DEMON_NAME is known to be bound by sigils, and to conjure him you will need to prepare your Chalke.", "DEMON_NAME is a creature of infernal Rules and will obey you presently if you Chalk the correct figures.", "This DEMON_RANK is Mystified by arcane chalkings and may obey you if you practice the following.", "His conjuration relies upon the correct figures, and this is how they are Chalked.", "To summon the DEMON_RANK DEMON_NAME, you will need to carefully construct the following figures.", "To summon DEMON_NAME thou must mark the following signs on the Floor.", "To raise his spirit you will need to Chalk the following.", "Gaining his attention relies on chalking and invoking the following."]
 circle_ritual_first_steps = ["First, clean and sweep a Roome, as high as possible in the house and as far away from other people.", "First you must prepare a space. Choose a quiet and secluded room in a Family house.", "You will need a warm and closed room, without windows of any kind, to perform his Rite."]
 circle_ritual_second_steps = ["With the room prepared, take a COLOUR chalk or Pencile and enscribe a circle of SIZE feet upon the floor.", "Take now a COLOUR chalk and draw a circle of SIZE feet upon the floor.", "This found, take thee a COLOUR chalk or other staine and draw a circle of exactly SIZE feet upon the floor.", "Next is to take a COLOUR chalk and draw a circle of SIZE feet upon the floor.", "Next, for the required Circle, take a COLOUR chalk and inscribe a Diameter of SIZE feet."]
+circle_ritual_trinket_steps= ["Next, take the TRINKET which you have prepared and place it carefully at the COMPASS point, taking utmost care as you do so.", "Next, take the TRINKET which you have prepared and place it at the COMPASS point of the circle."]
 circle_ritual_final_steps = ["All this done, around the perimeter of the Circle, write the following words respectively at the points North, South, East and West: <strong>WORD_ONE, WORD_TWO, WORD_THREE, WORD_FOUR</strong>."]
 
 
@@ -99,7 +107,7 @@ sacrifice_tools = ["iron sword", "hammer", "razor", "shard of mirror", "blunt to
 sacrifice_ritual_intros = ["As DEMON_NAME is a powerful DEMON_RANK in the army of KING_TITLE KING_NAME, you will need to make a sacrifice in order to evoke him.", "DEMON_NAME is a powerful DEMON_RANK in KING_TITLE KING_NAME's army, and demands a sacrificial ritual before he will shew himself.", "To conjure or confer with DEMON_NAME, you will need to carry out a sacrificial ritual.", "Before DEMON_NAME will Shew himself to you, you must peform the following sacrifice.", "DEMON_NAME will not show himself or listen to you, until you have appeased him with the following Sacrifice."]
 sacrifice_animal_intros = ["Obtain ARTICLE ANIMAL.", "First get thee ARTICLE ANIMAL.", "First get a fine ANIMAL, the best you can find.", "You will first need to get thyself ARTICLE ANIMAL, for it is this that you shall sacrifice."]
 sacrifice_ritual_first_steps = ["You shall need to find the right place. This sacrifice must be conducted in ARTICLE SACRIFICE_PLACE.", "You will need to carry out this rite in ARTICLE SACRIFICE_PLACE.", "This ritual must be performed in ARTICLE SACRIFICE_PLACE.", "You will suffer the most dire consequences if this ritual is not performed in ARTICLE SACRIFICE_PLACE.", "If you do not perform this rite in ARTICLE SACRIFICE_PLACE the most dire consequences shall come back to you."]
-sacrifice_ritual_second_steps = ["In this place, you must now prepare ALTAR_TYPE, and do so solemnly.", "Next, in this place you must prepare ALTAR_TYPE. You may feel fear while you do so, but to appease DEMON_NAME you must do it while showing good cheer.", "Now in this place prepare ALTAR_TYPE. You must keep it clean.", "Next keeping thy mind focused upon thy task, prepare ALTAR_TYPE in the place you have chosen.", "Now will you need to prepare ALTAR_TYPE there.", "Next prepare there ALTAR_TYPE."]
+sacrifice_ritual_second_steps = ["In this place, you must now prepare ALTAR_TYPE, and do so solemnly. When you are done, place the TRINKET upon the altar.", "Next, in this place you must prepare ALTAR_TYPE and place the TRINKET upon it. You may feel fear while you do so, but to appease DEMON_NAME you must do it while showing good cheer.", "Now in this place prepare ALTAR_TYPE. Make this altar and the space around it as clean as possible, and place the TRINKET upon the altar.", "Next keeping thy mind focused upon thy task, prepare ALTAR_TYPE in the place you have chosen. Then place the TRINKET upon the altar.", "Now will you need to prepare ALTAR_TYPE there. Having done so, place the TRINKET upon the altar.", "Next prepare there ALTAR_TYPE and place the TRINKET upon the altar."]
 sacrifice_ritual_third_steps = ["At last, setting the bound and restrained ANIMAL upon thy altar, take ARTICLE TOOL in thy hand.", "Next set the ANIMAL upon the altar, restrained as necessary, then brace thyself and take up ARTICLE TOOL.", "Next place the well-bound ANIMAL upon the altar and taketh ARTICLE TOOL.", "Next take ARTICLE TOOL and set the ANIMAL upon thy altar, taking care that it is well bound."]
 sacrifice_ritual_songs = ["Before you commit the final deed, focus thy mind upon the word of power: MAGIC_WORD.", "As you steel thyself for the deed, first imagine, then begin to chant aloud the magic word \"MAGIC_WORD, MAGIC_WORD\".", "Next as you prepare to slay the beast, chant louder and louder \"MAGIC_WORD, MAGIC_WORD\"."]
 sacrifice_ritual_climax = ["As you enter a properly Magickal state, at last slay the ANIMAL with thy TOOL.", "At last, slay the ANIMAL with thy TOOL and let its blood flow over the altar.", "At last slay the ANIMAL with thy TOOL and let its blood runneth into a Cup.", "You know what must be done next. When it is done, thou art ready to consult the great DEMON_RANK DEMON_NAME.", "Kill now the ANIMAL with thy TOOL and in this last act of violence you shall have appeased the great DEMON_RANK DEMON_NAME.", "And the last Acte in pleasing the great DEMON_NAME is to kill the ANIMAL with thy TOOL."]
@@ -135,7 +143,7 @@ def archaic(word):
                 if not word[-2:] == "er":
                     word = word + "e"
 
-    if word[-2:] == "ed":
+    if (word[-2:] == "ed") and not (word[-3:] == "eed"):
         flip = random.randint(0,1)
         if flip > 0:
             word = word[:-2] + "`d"

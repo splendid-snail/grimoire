@@ -1,7 +1,6 @@
 import os
 import random
 import tarot
-import name
 import demons
 import text_output
 import html_output

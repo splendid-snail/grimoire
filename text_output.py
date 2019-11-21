@@ -145,6 +145,15 @@ def demon_commands(demon):
     output = output.replace("KING_NAME", demon.king.name)
     return output
 
+def demon_trinket(demon):
+    output = random.choice(language.demon_trinket_bits)
+    output = output.replace("DEMON_RANK", demon.rank)
+    output = output.replace("DEMON_NAME", demon.name)
+    output = output.replace("TRINKET", archaic(demon.trinket))
+    new_article = article(demon.trinket)
+    output = output.replace("ARTICLE", new_article)
+    return output
+
 def demon_planet(demon):
     output = random.choice(language.demon_planet)
     output = output.replace("DEMON_NAME", demon.name)
@@ -166,11 +175,21 @@ def describe_demon(demon):
     output += demon_skills(demon)
     output += " "
     output += demon_planet(demon)
+    output += " "
+    output += demon_trinket(demon)
+    output += " "
     output += "</div>"
     return output
 
 def describe_ritual(demon):
-    output = ""
+    output = paragraph(random.choice(language.pre_ritual_prep))
+    output = output.replace("TRINKET", archaic(demon.trinket))
+    while "PREP" in output:
+        prep = random.choice(language.prep_options)
+        if prep in output:
+            prep = random.choice(language.prep_options)
+        else:
+            output = output.replace("PREP", archaic(prep), 1)
     if demon.card.rank == 0 or demon.card.rank == 1:
         flip = random.randint(0,1)
         if flip > 0:
@@ -178,7 +197,7 @@ def describe_ritual(demon):
             #intro
             output += paragraph(random.choice(language.dance_ritual_intros))
             #first step
-            output += "<p>" + random.choice(language.dance_ritual_first_steps) + "</p>\n"
+            output += "<p>" + random.choice(language.dance_ritual_first_steps) + " Make sure also that you have the " + demon.trinket + " close at hand.</p>\n"
             verb = archaic(random.choice(language.dance_ritual_verbs))
             poss_pronoun = archaic(random.choice(language.second_person_poss_pronouns))
             second_pronoun = archaic(random.choice(language.second_person_pronouns))
@@ -208,6 +227,7 @@ def describe_ritual(demon):
             output = output.replace("PART", part)
             output = output.replace("POSS_PRONOUN", poss_pronoun)
             output = output.replace("MAGIC_WORD", magic_word())
+            output = output.replace("TRINKET", archaic(demon.trinket))
         else:
             #CIRCLE RITUAL
             output += paragraph(random.choice(language.circle_ritual_intros))
@@ -238,7 +258,11 @@ def describe_ritual(demon):
                     consequence = consequence.replace("ARTICLE", our_article)
                 output += consequence + "."
             output += "</p>\n"
-            #third step
+            #third step - trinkets
+            output += paragraph(random.choice(language.circle_ritual_trinket_steps))
+            output = output.replace("TRINKET", archaic(demon.trinket))
+            output = output.replace("COMPASS", archaic(random.choice(language.compass_points)))
+            #wrapping up
             output += paragraph(random.choice(language.circle_ritual_final_steps))
             word_one = magic_word()
             word_two = magic_word()
@@ -268,6 +292,7 @@ def describe_ritual(demon):
         output += paragraph(random.choice(language.sacrifice_ritual_second_steps))
         altar = archaic(random.choice(language.altar_types))
         output = output.replace("ALTAR_TYPE", altar)
+        output = output.replace("TRINKET", archaic(demon.trinket))
         #Third step - get the tool and the animal together
         output += paragraph(random.choice(language.sacrifice_ritual_third_steps))
         tool = archaic(random.choice(language.sacrifice_tools))
