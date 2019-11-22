@@ -2,7 +2,7 @@ import language
 import random
 import markov
 from language import archaic, article, ordinal
-from html_output import paragraph
+from html_output import paragraph, list_item
 from name import magic_word
 
 def generate_subtitle():
@@ -160,6 +160,14 @@ def demon_planet(demon):
     output = output.replace("PLANET_NAME", demon.planet)
     return output
 
+def demon_addenda(demon):
+    output = random.choice(language.demon_description_addenda)
+    output = output.replace("DEMON_NAME", demon.name)
+    output = output.replace("DEMON_RANK", demon.rank)
+    output = output.replace("FALSE_ADJ", archaic(random.choice(language.false_adj)))
+    output = output.replace("TRUE_ADJ", archaic(random.choice(language.true_adj)))
+    return output
+
 def describe_demon(demon):
     output = "<div id=\"" + demon.name + "\">"
     output += demon_intro(demon)
@@ -177,6 +185,10 @@ def describe_demon(demon):
     output += demon_planet(demon)
     output += " "
     output += demon_trinket(demon)
+    output += " "
+    flip = random.randint(0,3)
+    if flip < 1:
+        output += demon_addenda(demon)
     output += " "
     output += "</div>"
     return output
@@ -197,7 +209,8 @@ def describe_ritual(demon):
             #intro
             output += paragraph(random.choice(language.dance_ritual_intros))
             #first step
-            output += "<p>" + random.choice(language.dance_ritual_first_steps) + " Make sure also that you have the " + demon.trinket + " close at hand.</p>\n"
+            output += "<ol>"
+            output += list_item(random.choice(language.dance_ritual_first_steps) + " Make sure also that you have the " + demon.trinket + " close at hand.")
             verb = archaic(random.choice(language.dance_ritual_verbs))
             poss_pronoun = archaic(random.choice(language.second_person_poss_pronouns))
             second_pronoun = archaic(random.choice(language.second_person_pronouns))
@@ -207,7 +220,7 @@ def describe_ritual(demon):
             output = output.replace("POSS_PRONOUN", poss_pronoun)
             output = output.replace("SECOND_PRONOUN", second_pronoun)
             #second step
-            output += "<p>" + random.choice(language.dance_ritual_second_steps) + "</p>\n"
+            output += list_item(random.choice(language.dance_ritual_second_steps))
             verb_one = archaic(random.choice(language.dance_ritual_verbs))
             verb_two = archaic(random.choice(language.dance_ritual_verbs))
             poss_pronoun = archaic(random.choice(language.second_person_poss_pronouns))
@@ -219,7 +232,7 @@ def describe_ritual(demon):
             output = output.replace("PART_TWO", part_two)
             output = output.replace("POSS_PRONOUN", poss_pronoun)
             #third step
-            output += "<p>" + random.choice(language.dance_ritual_final_steps) + "</p>\n"
+            output += list_item(random.choice(language.dance_ritual_final_steps))
             verb = archaic(random.choice(language.dance_ritual_verbs))
             poss_pronoun = archaic(random.choice(language.second_person_poss_pronouns))
             part = archaic(random.choice(language.dance_ritual_parts))
@@ -228,13 +241,14 @@ def describe_ritual(demon):
             output = output.replace("POSS_PRONOUN", poss_pronoun)
             output = output.replace("MAGIC_WORD", magic_word())
             output = output.replace("TRINKET", archaic(demon.trinket))
+            output += "</ol>\n"
         else:
             #CIRCLE RITUAL
             output += paragraph(random.choice(language.circle_ritual_intros))
             #first step
-            output += paragraph(random.choice(language.circle_ritual_first_steps))
+            output += "<ol>\n" + list_item(random.choice(language.circle_ritual_first_steps))
             #second step
-            output += paragraph(random.choice(language.circle_ritual_second_steps))
+            output += "<li>" + random.choice(language.circle_ritual_second_steps)
             size = str(random.randint(4,10))
             colour = archaic(random.choice(language.colours))
             output = output.replace("SIZE", size)
@@ -257,13 +271,13 @@ def describe_ritual(demon):
                     consequence = consequence.replace("HUMAN_FORM", human_form)
                     consequence = consequence.replace("ARTICLE", our_article)
                 output += consequence + "."
-            output += "</p>\n"
+            output += "</li>\n"
             #third step - trinkets
-            output += paragraph(random.choice(language.circle_ritual_trinket_steps))
+            output += list_item(random.choice(language.circle_ritual_trinket_steps))
             output = output.replace("TRINKET", archaic(demon.trinket))
             output = output.replace("COMPASS", archaic(random.choice(language.compass_points)))
             #wrapping up
-            output += paragraph(random.choice(language.circle_ritual_final_steps))
+            output += list_item(random.choice(language.circle_ritual_final_steps))
             word_one = magic_word()
             word_two = magic_word()
             word_three = magic_word()
@@ -272,44 +286,48 @@ def describe_ritual(demon):
             output = output.replace("WORD_TWO", word_two)
             output = output.replace("WORD_THREE", word_three)
             output = output.replace("WORD_FOUR", word_four)
+            output += "</ol>\n"
     else:
         #SACRIFICE RITUAL
         #Intro
         output += paragraph(random.choice(language.sacrifice_ritual_intros))
-        output += paragraph(random.choice(language.sacrifice_animal_intros))
+        #Real first step - get an animal
+        output += "<ol>\n"
+        output += list_item(random.choice(language.sacrifice_animal_intros))
         animal = archaic(random.choice(language.sacrifice_animals))
         this_article = archaic(article(animal))
         output = output.replace("ARTICLE", this_article)
         output = output.replace("ANIMAL", animal)
 
         #First step - place
-        output += paragraph(random.choice(language.sacrifice_ritual_first_steps))
+        output += list_item(random.choice(language.sacrifice_ritual_first_steps))
         place = archaic(random.choice(language.sacrifice_places))
         our_article = archaic(article(place))
         output = output.replace("ARTICLE", our_article)
         output = output.replace("SACRIFICE_PLACE", place)
         #Second step - altar
-        output += paragraph(random.choice(language.sacrifice_ritual_second_steps))
+        output += list_item(random.choice(language.sacrifice_ritual_second_steps))
         altar = archaic(random.choice(language.altar_types))
         output = output.replace("ALTAR_TYPE", altar)
         output = output.replace("TRINKET", archaic(demon.trinket))
         #Third step - get the tool and the animal together
-        output += paragraph(random.choice(language.sacrifice_ritual_third_steps))
+        output += list_item(random.choice(language.sacrifice_ritual_third_steps))
         tool = archaic(random.choice(language.sacrifice_tools))
         our_article = archaic(article(tool))
         output = output.replace("ANIMAL", animal)
         output = output.replace("TOOL", tool)
         output = output.replace("ARTICLE", our_article)
         #Song step - because why not
-        output += paragraph(random.choice(language.sacrifice_ritual_songs))
+        output += list_item(random.choice(language.sacrifice_ritual_songs))
         new_magic_word = magic_word()
         output = output.replace("MAGIC_WORD", new_magic_word)
         #And the climax
-        output += paragraph(random.choice(language.sacrifice_ritual_climax))
+        output += list_item(random.choice(language.sacrifice_ritual_climax))
         output = output.replace("ANIMAL", animal)
         output = output.replace("TOOL", tool)
         output = output.replace("DEMON_NAME", demon.name)
         output = output.replace("DEMON_RANK", demon.rank)
+        output += "</ol>\n"
     #Invocation begins
     output += "<p>Now at this Climax of the ritual, to invoke the " + demon.rank + " " + demon.name + " intone the following:</p>\n"
     output += "<p>By "+ markov.incantation(50) + "</p>\n"

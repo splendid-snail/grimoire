@@ -8,6 +8,10 @@ def paragraph(text):
     output = "<p>" + text + "</p>\n"
     return output
 
+def list_item(text):
+    output = "<li>" + text + "</li>\n"
+    return output
+    
 def generate_total_page(body_content):
     title = "Grimoire"
     subtitle = text_output.generate_subtitle()

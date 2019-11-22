@@ -79,6 +79,8 @@ demon_trinket_bits = ["Before attempting to summon the DEMON_RANK DEMON_NAME you
 
 demon_planet = ["Though an infernal spirit DEMON_NAME is subject to Heavenly influences. The Planet influencing his actions is PLANET_NAME.", "Under the influence of Celestial bodies, you may find him easier to contact when PLANET_NAME is in Ascendency.", "His Planetary influence is PLANET_NAME.", "DEMON_NAME's Planetary influence is under PLANET_NAME."]
 
+demon_description_addenda = ["DEMON_NAME is a notably cruel demon.", "He is a notorious liar even by the standards of Hell. Do not trust him.", "This spirit delights in games and riddles.", "This spirit's frightening visage can drive men mad.", "Summon him with caution, for he is FALSE_ADJ.", "As TRUE_ADJ as it is possible for one of his rank to be, you can largely trust what DEMON_NAME says."]
+
 # Used in ritual generation
 pre_ritual_prep = ["Before attempting to summon the DEMON_RANK DEMON_NAME, you will need to PREP and PREP. You will also need to prepare the TRINKET.", "Before summoning DEMON_RANK DEMON_NAME, PREP and PREP and obtain a useful TRINKET.", "Before the ritual can begin you must PREP and PREP and get the TRINKET."]
 prep_options = ["bathe thyself thoroughly", "light fragrant incense", "prepare several candles", "meditate for a day", "spit at a church"]
@@ -86,7 +88,7 @@ prep_options = ["bathe thyself thoroughly", "light fragrant incense", "prepare s
 
 dance_ritual_intros = ["To gaine the attention of DEMON_NAME, you will need to Acte out the following motions.", "This demon is most pleased by deliberate motions, and this is how he is conjured.", "DEMON_NAME is a being of Chaos, and will be most pleased with you if you shew a Dance for him.", "Go through the following physical motions to conjure this DEMON_RANK DEMON_NAME."]
 
-dance_ritual_verbs = ["wave", "wiggle", "gyrate", "push out", "focus upon", "swirl", "shake"]
+dance_ritual_verbs = ["wave", "wiggle", "gyrate", "push out", "focus thy mental effort upon", "swirl", "shake", "gesture with", "move obscenely thy"]
 dance_ritual_parts = ["left hand", "right hand", "left fist", "right fist", "hands", "fists", "finger of POSS_PRONOUN left hand", "finger of POSS_PRONOUN right hand", "left foot", "right foot", "head", "right arm", "left arm", "right leg", "left leg"]
 dance_ritual_first_steps = ["First, VERB POSS_PRONOUN PART, for by this means you shall attract the Demon's attention.", "The first step is to VERB POSS_PRONOUN PART, which shall attract the Demon's attention.", "The first step is to attract the demon's attention. To do so, SECOND_PRONOUN must VERB POSS_PRONOUN PART."]
 dance_ritual_second_steps = ["When this is done, the next thing is to VERB_ONE POSS_PRONOUN PART_ONE while you  VERB_TWO POSS_PRONOUN PART_TWO."]
