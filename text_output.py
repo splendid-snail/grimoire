@@ -330,9 +330,18 @@ def describe_ritual(demon):
         output += "</ol>\n"
     #Invocation begins
     output += "<p>Now at this Climax of the ritual, to invoke the " + demon.rank + " " + demon.name + " intone the following:</p>\n"
-    output += "<p>By "+ markov.incantation(50) + "</p>\n"
+    output += "<p>By "+ markov.incantation(35) + "</p>\n"
+    output += "<p>And by "+ markov.incantation(35) + "</p>\n"
+    output += "<p>And by "+ markov.incantation(35) + "</p>\n"
     output = output.replace("DEMON_NAME", demon.name)
     output = output.replace("DEMON_RANK", demon.rank)
     output = output.replace("KING_NAME", demon.king.name)
     output = output.replace("KING_TITLE", demon.king.title)
+    output = output.replace("TRINKET", demon.trinket)
+    #output += lorem_ipsum_100()
+    #output += lorem_ipsum_100()
+    return output
+
+def lorem_ipsum_100():
+    output = paragraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus massa ac mattis finibus. Maecenas posuere orci in nisl consequat ultrices. Praesent scelerisque posuere hendrerit. In luctus consequat ligula, a sagittis nibh tincidunt id. Morbi ac ullamcorper lacus. Pellentesque nulla neque, fermentum id eleifend et, convallis et diam. Duis tincidunt ultrices neque nec pretium. Aliquam tellus urna, interdum sit amet sapien sit amet, suscipit scelerisque odio. Nullam non commodo urna. Vivamus molestie massa velit, in sodales nibh aliquet et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse dui metus, rhoncus in lorem ac, ultrices consequat.")
     return output

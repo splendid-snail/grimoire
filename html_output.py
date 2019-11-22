@@ -11,11 +11,11 @@ def paragraph(text):
 def list_item(text):
     output = "<li>" + text + "</li>\n"
     return output
-    
+
 def generate_total_page(body_content):
     title = "Grimoire"
     subtitle = text_output.generate_subtitle()
-    html_header = "<!DOCTYPE html>\n<html>\n\n<head>\n<title>" + title + "</title>\n<link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n\n"
+    html_header = "<!DOCTYPE html>\n<html>\n\n<head>\n<title>" + title + "</title>\n<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\n</head>\n\n"
     html_body = "<body>\n<h1>" + title + "</h1>\n" + "<p><em>" + subtitle + "</em></p><hr>\n" + body_content + "\n</body>\n\n</html>"
     return html_header + html_body
 
