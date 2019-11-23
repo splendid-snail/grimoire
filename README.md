@@ -1,5 +1,6 @@
 # grimoire
 *Procedural occultism: NaNoGenMo 2019 entry*
+
 Grimoire is a manual for conjuring procedurally generated demons.
 
 It's written in Python and outputs a page of HTML. 
