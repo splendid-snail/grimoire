@@ -1,5 +1,6 @@
 import name
 import random
+import sigils
 from language import archaic, article, low_rank_skills, mid_rank_skills, high_rank_skills, spirit_forms, human_descriptions, human_forms, planets, animals, trinkets, king_continue, king_consequence, voices
 
 class Demon:
@@ -11,6 +12,7 @@ class Demon:
         self.card = card
         self.king = king
         self.realm = king.realm
+        self.order = 0 #serial number, starts at 1, assigned in demon creation function
         if card.rank == 0:
             self.rank = random.choice(low_ranks)
             self.skill = random.choice(low_rank_skills)
@@ -62,6 +64,10 @@ def create_demons(kings_list, names_list, tarot_deck):
             demons_to_make -= 1
             order_in_realm += 1
             demons_made += 1
+            new_demon.order = demons_made
+            #make sigil here
+            sigils.create_sigil(new_demon)
+
     return demons_list
 
 def generate_king_consequence():

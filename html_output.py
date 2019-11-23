@@ -15,8 +15,12 @@ def list_item(text):
 def generate_total_page(body_content):
     title = "Grimoire"
     subtitle = text_output.generate_subtitle()
-    html_header = "<!DOCTYPE html>\n<html>\n\n<head>\n<title>" + title + "</title>\n<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\n</head>\n\n"
-    html_body = "<body>\n<h1>" + title + "</h1>\n" + "<p><em>" + subtitle + "</em></p><hr>\n" + body_content + "\n</body>\n\n</html>"
+    html_header = "<!DOCTYPE html>\n<html>\n\n<head>\n<title>" + title + "</title>\n<link rel=\"stylesheet\" href=\"w3.css\">\n<style>html, body, h1, h2, h3, h4, h5, h6 {  font-family: \"Comic Sans MS\", cursive, sans-serif;}</style>\n</head>\n\n"
+
+
+
+
+    html_body = "<body><div class=\"w3-container\">\n<div class=\"w3-row-padding\">\n<div class=\"w3-twothird\">\n<h1 id=\"title\">" + title + "</h1>\n" + "<p><em>" + subtitle + "</em></p><hr>\n" + body_content + "\n</div>\n</div>\n</div>\n</body>\n\n</html>"
     return html_header + html_body
 
 def generate_table_of_contents(kings_list, demons_list):

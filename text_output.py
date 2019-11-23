@@ -338,6 +338,7 @@ def describe_ritual(demon):
     output = output.replace("KING_NAME", demon.king.name)
     output = output.replace("KING_TITLE", demon.king.title)
     output = output.replace("TRINKET", demon.trinket)
+    output += paragraph("<a href=\"#title\">Back to top</a>")
     #output += lorem_ipsum_100()
     #output += lorem_ipsum_100()
     return output
