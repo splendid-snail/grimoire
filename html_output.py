@@ -1,7 +1,7 @@
 import random
 import text_output
 import language
-from language import article, archaic
+from language import article, archaic, ordinal
 
 
 def paragraph(text):
@@ -15,12 +15,16 @@ def list_item(text):
 def generate_total_page(body_content):
     title = "Grimoire"
     subtitle = text_output.generate_subtitle()
-    html_header = "<!DOCTYPE html>\n<html>\n\n<head>\n<title>" + title + "</title>\n<link rel=\"stylesheet\" href=\"w3.css\">\n<style>html, body, h1, h2, h3, h4, h5, h6 {  font-family: \"Comic Sans MS\", cursive, sans-serif;}</style>\n</head>\n\n"
-
-
-
-
-    html_body = "<body><div class=\"w3-container\">\n<div class=\"w3-row-padding\">\n<div class=\"w3-twothird\">\n<h1 id=\"title\">" + title + "</h1>\n" + "<p><em>" + subtitle + "</em></p><hr>\n" + body_content + "\n</div>\n</div>\n</div>\n</body>\n\n</html>"
+    html_header = "<!DOCTYPE html>\n<html>\n\n<head>\n<title>" + title + "</title>\n<link rel=\"stylesheet\" href=\"w3.css\">\n<style>html, body, h1, h2, h3, h4, h5, h6 {  font-family: \"Garamond\", serif;}</style>\n</head>\n\n"
+    html_body = "<body><div class=\"w3-container w3-sand\" >\n"
+    html_body += "<div class=\"w3-row-padding\">\n"
+    html_body += "<div class=\"w3-quarter w3-container\"> <p></p> </div>\n"
+    html_body += "<div class=\"w3-half w3-container\">\n"
+    html_body += "<h1 id=\"title\">" + title + "</h1>\n" + "<p><em>" + subtitle + "</em></p><hr>\n" + body_content + "\n"
+    html_body += "</div>\n" #w3-half
+    html_body += "</div>\n" #w3-row-padding
+    html_body += "</div>\n" #w3-container w3-sand
+    html_body += "</body>\n\n</html>"
     return html_header + html_body
 
 def generate_table_of_contents(kings_list, demons_list):
@@ -61,9 +65,9 @@ def generate_body_content(kings_list, demons_list): #Actually the main body cont
         output += "<h3>Of this realm's King</h3>\n"
         output += paragraph(text_output.describe_king(king))
         output += "<hr>\n"
-        output += "<h3>Of this realm's Demons</h3>\n"
         for demon in demons_list:
             if demon.realm == king.realm:
+                output += "<h3 id=\"" + demon.name + "\">Of this realm's " + ordinal(demon.order_in_realm) + " Demon, " + demon.name + "</h3>\n"
                 output += paragraph(text_output.describe_demon(demon))
                 output += paragraph(text_output.describe_ritual(demon))
                 output += "<hr>\n"

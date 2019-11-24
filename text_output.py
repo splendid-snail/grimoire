@@ -85,7 +85,7 @@ def describe_king(king):
     return output
 
 def demon_intro(demon):
-    output = "<strong>The " + ordinal(demon.order_in_realm) + " demon</strong> in the " + demon.realm + " realm is " + demon.name
+    output = "<strong>The " + ordinal(demon.order_in_realm) + " demon in the " + demon.realm + " realm is called " + demon.name + ".</strong>"
     return output
 
 def demon_voice(demon):
@@ -123,8 +123,10 @@ def demon_rank(demon):
         output = random.choice(language.mid_rank_intros)
     else:
         output = random.choice(language.high_rank_intros)
+    new_article = article(demon.rank)
     output = output.replace("RANK", demon.rank)
     output = output.replace("KING_NAME", demon.king.name)
+    output = output.replace("ARTICLE", new_article)
     return output
 
 def demon_commands(demon):
@@ -168,10 +170,25 @@ def demon_addenda(demon):
     output = output.replace("TRUE_ADJ", archaic(random.choice(language.true_adj)))
     return output
 
+def demon_sigil(demon):
+    output = paragraph(random.choice(language.demon_sigil_intros))
+    #output += "<div class=\"w3-container\">\n"
+    output += "<div class=\"w3-row-padding\">\n"
+    output += "<div class=\"w3-quarter w3-container\"> <p></p> </div>"
+    output += "<div class=\"w3-half w3-container\">"
+    #output += "<div class=\"w3-card w3-white\">"
+    img_url = "\"sigils/sigil__" + str(demon.order) + ".png\""
+    output += "<img src=" + img_url + "class=\"w3-image\">"
+    #output += "</div>\n" #card
+    output += "</div>\n" #half
+    output += "</div>\n" #row
+    #output += "</div>\n" # container
+    return output
+
+
 def describe_demon(demon):
-    output = "<div id=\"" + demon.name + "\">"
-    output += demon_intro(demon)
-    output += ". "
+    output = demon_intro(demon)
+    output += " "
     output += demon_rank(demon)
     output += " "
     output += demon_commands(demon)
@@ -189,8 +206,7 @@ def describe_demon(demon):
     flip = random.randint(0,3)
     if flip < 1:
         output += demon_addenda(demon)
-    output += " "
-    output += "</div>"
+    output += demon_sigil(demon)
     return output
 
 def describe_ritual(demon):
@@ -330,6 +346,7 @@ def describe_ritual(demon):
         output += "</ol>\n"
     #Invocation begins
     output += "<p>Now at this Climax of the ritual, to invoke the " + demon.rank + " " + demon.name + " intone the following:</p>\n"
+    output += "<div class = \"w3-card w3-white\"> <div class=\"w3-container\">\n"
     output += "<p>By "+ markov.incantation(35) + "</p>\n"
     output += "<p>And by "+ markov.incantation(35) + "</p>\n"
     output += "<p>And by "+ markov.incantation(35) + "</p>\n"
@@ -338,6 +355,7 @@ def describe_ritual(demon):
     output = output.replace("KING_NAME", demon.king.name)
     output = output.replace("KING_TITLE", demon.king.title)
     output = output.replace("TRINKET", demon.trinket)
+    output += "</div></div>"
     output += paragraph("<a href=\"#title\">Back to top</a>")
     #output += lorem_ipsum_100()
     #output += lorem_ipsum_100()
