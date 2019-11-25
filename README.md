@@ -5,8 +5,8 @@ Grimoire is a manual for conjuring procedurally generated demons. It's also my [
 
 It's written in Python and outputs a page of HTML.
 
-It uses some content from [Corpora](https://github.com/dariusk/corpora), and [W3.CSS](https://www.w3schools.com/w3css/) for its output.
+It uses some content from [Corpora](https://github.com/dariusk/corpora), and [W3.CSS](https://www.w3schools.com/w3css/) for its output. It also uses [Pillow](https://python-pillow.org/) for image creation and manipulation.
 
-It takes inspiration, and recycles some text, from the Lesser Key of Solomon. I'm using Joseph H Peterson's extremely well researched 2001 edition.
+It takes inspiration, and recycles some text, from the [Lesser Key of Solomon](https://en.wikipedia.org/wiki/Lesser_Key_of_Solomon). I'm using Joseph H Peterson's extremely well researched 2001 edition.
 
 Don't mess with this stuff unless you know what you're doing.
