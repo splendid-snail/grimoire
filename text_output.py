@@ -286,7 +286,8 @@ def describe_ritual(demon):
                     consequence = consequence.replace("HUMAN_DESCRIPTION", human_description)
                     consequence = consequence.replace("HUMAN_FORM", human_form)
                     consequence = consequence.replace("ARTICLE", our_article)
-                output += consequence + "."
+                output += consequence + ". "
+                output += random.choice(language.sigil_to_circle)
             output += "</li>\n"
             #third step - trinkets
             output += list_item(random.choice(language.circle_ritual_trinket_steps))
@@ -350,12 +351,14 @@ def describe_ritual(demon):
     output += "<p>By "+ markov.incantation(35) + "</p>\n"
     output += "<p>And by "+ markov.incantation(35) + "</p>\n"
     output += "<p>And by "+ markov.incantation(35) + "</p>\n"
+    output += "</div></div>"
+    output += paragraph(random.choice(language.post_ritual_phrase))
     output = output.replace("DEMON_NAME", demon.name)
     output = output.replace("DEMON_RANK", demon.rank)
     output = output.replace("KING_NAME", demon.king.name)
     output = output.replace("KING_TITLE", demon.king.title)
     output = output.replace("TRINKET", demon.trinket)
-    output += "</div></div>"
+    output = output.replace("POS_ADJ", archaic(random.choice(language.positive_adj)))      
     output += paragraph("<a href=\"#title\">Back to top</a>")
     #output += lorem_ipsum_100()
     #output += lorem_ipsum_100()
