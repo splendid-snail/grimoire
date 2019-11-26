@@ -252,6 +252,8 @@ def describe_ritual(demon):
             verb = archaic(random.choice(language.dance_ritual_verbs))
             poss_pronoun = archaic(random.choice(language.second_person_poss_pronouns))
             part = archaic(random.choice(language.dance_ritual_parts))
+            #final final step
+            output += list_item(random.choice(language.dance_ritual_truly_final_steps))
             output = output.replace("VERB", verb)
             output = output.replace("PART", part)
             output = output.replace("POSS_PRONOUN", poss_pronoun)
@@ -358,7 +360,7 @@ def describe_ritual(demon):
     output = output.replace("KING_NAME", demon.king.name)
     output = output.replace("KING_TITLE", demon.king.title)
     output = output.replace("TRINKET", demon.trinket)
-    output = output.replace("POS_ADJ", archaic(random.choice(language.positive_adj)))      
+    output = output.replace("POS_ADJ", archaic(random.choice(language.positive_adj)))
     output += paragraph("<a href=\"#title\">Back to top</a>")
     #output += lorem_ipsum_100()
     #output += lorem_ipsum_100()

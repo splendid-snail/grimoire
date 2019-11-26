@@ -40,7 +40,7 @@ ruled_passive = ["ruled", "governed", "overseen", "maintained", "dominated"]
 ruled_active = ["rules", "governs", "oversees", "maintains", "dominates"]
 realm_intros_passive = ["This realm is", "This kingdom is", "Know that this realm is"]
 realm_attrib_intros = ["It is the realm of ", "Here in this realm is ", "This is a realm with attributes of ", "Here are ", "This is the traditional home of ", "It has longe been known to the learned as the realm of ", "In this realm`s Pleroma are the spirits of ", "Among the strongest influences here are "]
-realm_attrib_continued = [", where you shall finde OBJECT.", ", where you may find OBJECT.", ", where OBJECT shall be found.", ", where the influences of OBJECT are most strong."]
+realm_attrib_continued = [", which is the domain of OBJECT.", " and also OBJECT.", ", where you shall fine also OBJECT.", ", where the influences of OBJECT are most strong."]
 
 #King description bits
 king_intros = ["The lorde of this realm, NAME, is ARTICLE TITLE"]
@@ -77,7 +77,7 @@ demon_commands_high = ["DEMON_NAME commands a host of SUM spirits and demons, wh
 
 demon_trinket_bits = ["Before attempting to summon the DEMON_RANK DEMON_NAME you will need to find ARTICLE TRINKET and keep it about you.", "In order to conjure and evoke the DEMON_RANK DEMON_NAME, you must make sure you have with you ARTICLE TRINKET, for it shall be required in the summoning.", "Necessary for the summoning or evocation of DEMON_NAME the DEMON_RANK shall be ARTICLE TRINKET, which shall please DEMON_NAME greatly."]
 
-demon_planet = ["Though an infernal spirit DEMON_NAME is subject to Heavenly influences. The Planet influencing his actions is PLANET_NAME.", "Under the influence of Celestial bodies, you may find him easier to contact when PLANET_NAME is in Ascendency.", "His Planetary influence is PLANET_NAME.", "DEMON_NAME's Planetary influence is under PLANET_NAME."]
+demon_planet = ["Though an infernal spirit DEMON_NAME is subject to Heavenly influencesand the Planet PLANET_NAME inflences his actions.", "Under the influence of Celestial bodies, you may find him easier to contact when PLANET_NAME is in Ascendency.", "His Planetary influence is PLANET_NAME.", "DEMON_NAME's Planetary influence is under PLANET_NAME."]
 
 demon_description_addenda = ["DEMON_NAME is a notably cruel demon.", "He is a notorious liar even by the standards of Hell. Do not trust him.", "This spirit delights in games and riddles.", "This spirit's frightening visage can drive men mad.", "Summon him with caution, for he is FALSE_ADJ.", "As TRUE_ADJ as it is possible for one of his rank to be, you can largely trust what DEMON_NAME says."]
 
@@ -85,7 +85,7 @@ demon_sigil_intros = ["His seale lookes like this:", "His sigil looks like this:
 
 # Used in ritual generation
 pre_ritual_prep = ["Before attempting to summon the DEMON_RANK DEMON_NAME, you will need to PREP and PREP. You will also need to prepare the TRINKET.", "Before summoning DEMON_RANK DEMON_NAME, PREP and PREP and obtain a useful TRINKET.", "Before the ritual can begin you must PREP and PREP and get the TRINKET."]
-prep_options = ["bathe thyself thoroughly", "light fragrant incense", "prepare several candles", "meditate for a day", "spit at a church"]
+prep_options = ["bathe thyself thoroughly", "light fragrant incense", "prepare several candles", "meditate for a day", "spit at a church", "spend a day thinking on the Demon's name", "find a Cat and pull its Tail"]
 
 
 dance_ritual_intros = ["To gaine the attention of DEMON_NAME, you will need to Acte out the following motions.", "This demon is most pleased by deliberate motions, and this is how he is conjured.", "DEMON_NAME is a being of Chaos, and will be most pleased with you if you shew a Dance for him.", "Go through the following physical motions to conjure this DEMON_RANK DEMON_NAME."]
@@ -95,7 +95,7 @@ dance_ritual_parts = ["left hand", "right hand", "left fist", "right fist", "han
 dance_ritual_first_steps = ["First, VERB POSS_PRONOUN PART, for by this means you shall attract the Demon's attention.", "The first step is to VERB POSS_PRONOUN PART, which shall attract the Demon's attention.", "The first step is to attract the demon's attention. To do so, SECOND_PRONOUN must VERB POSS_PRONOUN PART."]
 dance_ritual_second_steps = ["When this is done, the next thing is to VERB_ONE POSS_PRONOUN PART_ONE while you  VERB_TWO POSS_PRONOUN PART_TWO."]
 dance_ritual_final_steps = ["Continue this last thing until your brow is beaded with sweat, and then lastly VERB POSS_PRONOUN PART in climax, while you chant \"MAGIC_WORD, MAGIC_WORD\", and all the while hold the TRINKET close about you.", "Keep doing this until you reach a frenzy, keeping the TRINKET held close about you at all times, and finally VERB POSS_PRONOUN PART while you chant \"MAGIC_WORD, MAGIC_WORD\"."]
-
+dance_ritual_truly_final_steps = ["As you feel the dark Power rise within you, use the TRINKET to trace the seale of DEMON_NAME in the Aire, chanting \"MAGIC_WORD\" as you do.", "At the very last, while chanting \"MAGIC_WORD, MAGIC_WORD\" use the TRINKET to trace DEMON_RANK DEMON_NAME's Seale in the air before you.", "At last, keeping up the Chant use the TRINKET to trace mighty DEMON_NAME's Sigil in the aire before you.", "At last, trace DEMON_NAME's sigil in the aire before you with the TRINKET while you chant \"MAGIC_WORD\"."]
 
 circle_ritual_intros = ["This demon is most taken with signs and sigils, and will require geomantic encouragement before he will shew himself to you.", "DEMON_NAME is known to be bound by sigils, and to conjure him you will need to prepare your Chalke.", "DEMON_NAME is a creature of infernal Rules and will obey you presently if you Chalk the correct figures.", "This DEMON_RANK is Mystified by arcane chalkings and may obey you if you practice the following.", "His conjuration relies upon the correct figures, and this is how they are Chalked.", "To summon the DEMON_RANK DEMON_NAME, you will need to carefully construct the following figures.", "To summon DEMON_NAME thou must mark the following signs on the Floor.", "To raise his spirit you will need to Chalk the following.", "Gaining his attention relies on chalking and invoking the following."]
 circle_ritual_first_steps = ["First, clean and sweep a Roome, as high as possible in the house and as far away from other people.", "First you must prepare a space. Choose a quiet and secluded room in a Family house.", "You will need a warm and closed room, without windows of any kind, to perform his Rite."]
@@ -116,7 +116,7 @@ sacrifice_ritual_third_steps = ["At last, setting the bound and restrained ANIMA
 sacrifice_ritual_songs = ["Before you commit the final deed, focus thy mind upon the word of power: MAGIC_WORD.", "As you steel thyself for the deed, first imagine, then begin to chant aloud the magic word \"MAGIC_WORD, MAGIC_WORD\".", "Next as you prepare to slay the beast, chant louder and louder \"MAGIC_WORD, MAGIC_WORD\"."]
 sacrifice_ritual_climax = ["As you enter a properly Magickal state, at last slay the ANIMAL with thy TOOL. Now use the blood to draw the sigil of DEMON_NAME on the ground before you.", "At last, slay the ANIMAL with thy TOOL and let its blood flow over the altar. At last use the blood to draw the sigil of DEMON_NAME on the ground before you.", "At last slay the ANIMAL with thy TOOL and let its blood runneth into a Cup. Now pour the cup onto the ground before you and trace the sigil of DEMON_NAME on the ground before you.", "Next is to kill the ANIMAL with thy TOOL. When the deed is done, spread its blood about the floor in the pattern of great DEMON_NAME's sigil. thou art ready to consult the great DEMON_RANK DEMON_NAME.", "Kill now the ANIMAL with thy TOOL and spread the blood about the floor in the figure of the demon's Seale. In this last act of violence you shall have appeased the great DEMON_RANK DEMON_NAME.", "And the last Acte in pleasing the great DEMON_NAME is to kill the ANIMAL with thy TOOL and use the blood to draw the sigil of DEMON_NAME on the ground before you."]
 
-post_ritual_phrase = ["If this being done He does not appear, rehease the Conjuration severall times, and DEMON_RANK DEMON_NAME shall in POS_ADJ truth shew Himself to you."]
+post_ritual_phrase = ["If this being done He does not appear, rehearse the Conjuration severall times, and DEMON_RANK DEMON_NAME shall in POS_ADJ truth shew Himself to you.", "If after this last being done you do not meete the DEMON_RANK DEMON_NAME, repeat this Conjuration in a louder voice and he will in POS_ADJ appeare.", "Then if you do not sense his presence, repeat the Incantation until you Doe.", "If you do not then meete with DEMON_RANK DEMON_NAME, repeat the incantation againe, but louder.", "If this does not worke to raise the demon, simply try againe the next day at midnight, this time performing the rite Naked."]
 
 
 def archaic(word):

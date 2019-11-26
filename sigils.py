@@ -24,5 +24,5 @@ def create_sigil(demon):
         output = Image.alpha_composite(output, top)
         strokes -= 1
 
-    filename = "sigils/sigil__" + str(demon.order) + ".png"
+    filename = "docs/sigils/sigil__" + str(demon.order) + ".png"
     output.save(filename)

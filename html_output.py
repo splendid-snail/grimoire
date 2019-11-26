@@ -74,6 +74,6 @@ def generate_body_content(kings_list, demons_list): #Actually the main body cont
     return output
 
 def output_final_html(total_html_string):
-    html_file = open("grimoire.html", "w")
+    html_file = open("docs/index.html", "w")
     html_file.write(total_html_string)
     html_file.close()
