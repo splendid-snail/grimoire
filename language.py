@@ -145,7 +145,7 @@ def archaic(word):
                 word = word + "l"
             else:
                 word = word + "le"
-        elif word[-1] == "s" and not word[-2:] == "es":
+        elif word[-1] == "s" and not word[-2:] == "es" and not word[-2:] == "us":
             word = word[:-1]
             flip = random.randint(0,1)
             if flip > 0 or word[-2] == "r":

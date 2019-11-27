@@ -15,14 +15,16 @@ def list_item(text):
 def generate_total_page(body_content):
     title = "Grimoire"
     subtitle = text_output.generate_subtitle()
-    html_header = "<!DOCTYPE html>\n<html>\n\n<head>\n<title>" + title + "</title>\n<link rel=\"stylesheet\" href=\"w3.css\">\n<style>html, body, h1, h2, h3, h4, h5, h6 {  font-family: \"Garamond\", serif;}</style>\n</head>\n\n"
-    html_body = "<body><div class=\"w3-container w3-sand\" >\n"
-    html_body += "<div class=\"w3-row-padding\">\n"
-    html_body += "<div class=\"w3-quarter w3-container\"> <p></p> </div>\n"
-    html_body += "<div class=\"w3-half w3-container\">\n"
+    body_font_size = 18
+    html_header = "<!DOCTYPE html>\n<html>\n\n<head>\n<title>" + title + "</title>\n<link rel=\"stylesheet\" href=\"w3.css\">\n<link href=\"https://fonts.googleapis.com/css?family=Baskervville&display=swap\" rel=\"stylesheet\">\n<style>html, body, h1, h2, h3, h4, h5, h6 {  font-family: \"Baskervville\", serif;}  p,li{font-size:" + str(body_font_size) +"px;}   </style>\n</head>\n\n"
+    html_body = "<body>\n"
+    html_body += "<div class=\"w3-container w3-sand\" >\n"
+    html_body += "<div class=\"w3-content\">\n"
+    #html_body += "<div class=\"w3-quarter w3-container\"> <p></p> </div>\n"
+    #html_body += "<div class=\"w3-half w3-container\">\n"
     html_body += "<h1 id=\"title\">" + title + "</h1>\n" + "<p><em>" + subtitle + "</em></p><hr>\n" + body_content + "\n"
-    html_body += "</div>\n" #w3-half
-    html_body += "</div>\n" #w3-row-padding
+    #html_body += "</div>\n" #w3-half
+    html_body += "</div>\n" #w3-content
     html_body += "</div>\n" #w3-container w3-sand
     html_body += "</body>\n\n</html>"
     return html_header + html_body
