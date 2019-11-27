@@ -1,35 +1,38 @@
 import name
 import random
 import sigils
-from language import archaic, article, low_rank_skills, mid_rank_skills, high_rank_skills, spirit_forms, human_descriptions, human_forms, planets, animals, trinkets, king_continue, king_consequence, voices
+import language
+from language import archaic, article
 
 class Demon:
     def __init__(self, name, card, king):
-        upper_ranks = ["Archduke", "President", "Prince", "Despot", "Duke"]
-        mid_ranks = ["Marquiz", "Count", "Earl"]
-        low_ranks = ["Knight", "Baronet", "Seigneur", "Viscount"]
+
         self.name = name
         self.card = card
         self.king = king
         self.realm = king.realm
         self.order = 0 #serial number, starts at 1, assigned in demon creation function
         if card.rank == 0:
-            self.rank = random.choice(low_ranks)
-            self.skill = random.choice(low_rank_skills)
+            self.rank = random.choice(language.low_ranks)
+            self.skill = random.choice(language.normal_skills)
         elif card.rank == 1:
-            self.rank = random.choice(mid_ranks)
-            self.skill = random.choice(mid_rank_skills)
+            self.rank = random.choice(language.mid_ranks)
+            self.skill = random.choice(language.normal_skills)
         else:
-            self.rank = random.choice(upper_ranks)
-            self.skill = random.choice(high_rank_skills)
+            self.rank = random.choice(language.upper_ranks)
+            self.skill = random.choice(language.high_rank_skills)
+        self.skill = self.skill.replace("ANIMAL", archaic((random.choice(language.animals) + "s")))
+        self.skill = self.skill.replace("POS_ADJ", archaic(random.choice(language.positive_adj)))
+        self.skill = self.skill.replace("TRUE_ADJ", archaic(random.choice(language.true_adj)))
+        self.skill = self.skill.replace("STRENGTH", archaic(random.choice(language.strengths)))        
         #insert twisted sword easter egg here
-        self.animal_form = random.choice(animals)
-        self.human_form = random.choice(human_descriptions) + " " + random.choice(human_forms)
-        self.spirit_form = random.choice(spirit_forms)
+        self.animal_form = random.choice(language.animals)
+        self.human_form = random.choice(language.human_descriptions) + " " + random.choice(language.human_forms)
+        self.spirit_form = random.choice(language.spirit_forms)
         self.lucky_number = random.randint(1,99)
-        self.planet = random.choice(planets)
-        self.trinket = random.choice(trinkets)
-        self.voice = random.choice(voices)
+        self.planet = random.choice(language.planets)
+        self.trinket = random.choice(language.trinkets)
+        self.voice = random.choice(language.voices)
         """
         To add:
         * consequences (split by rank?)
@@ -39,14 +42,14 @@ class Demon:
 
 class King:
     def __init__(self, name, realm):
-        titles = ["Lord", "King", "Emperor", "Basileus"]
+
         self.name = name
-        self.title = random.choice(titles)
+        self.title = random.choice(language.king_titles)
         self.realm = realm
         animals_set = False
         while not animals_set:
-            self.animal_form_one = random.choice(animals)
-            self.animal_form_two = random.choice(animals)
+            self.animal_form_one = random.choice(language.animals)
+            self.animal_form_two = random.choice(language.animals)
             if self.animal_form_one != self.animal_form_two:
                 animals_set = True
 
@@ -71,9 +74,9 @@ def create_demons(kings_list, names_list, tarot_deck):
     return demons_list
 
 def generate_king_consequence():
-    consequence = random.choice(king_consequence)
+    consequence = random.choice(language.king_consequence)
     if "ANIMAL" in consequence:
-        animal = archaic(random.choice(animals))
+        animal = archaic(random.choice(language.animals))
         indef_article = article(animal)
         consequence = consequence.replace("ANIMAL", animal)
         consequence = consequence.replace("ARTICLE", indef_article)
@@ -88,9 +91,9 @@ def create_kings(names_list):
     while kings_made < 6:
         new_king = King(name.new(names_list), realms[kings_made])
 
-        cont = random.choice(king_continue)
+        cont = random.choice(language.king_continue)
         while cont in used_continues:
-            cont = random.choice(king_continue)
+            cont = random.choice(language.king_continue)
         used_continues.append(cont)
         new_king.cont = cont
 
