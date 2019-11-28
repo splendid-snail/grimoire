@@ -45,6 +45,8 @@ def make_text(dictionary, iterations):
         new_word = random.choice(dictionary.get(starting_point))
         new_phrase = starting_point + " " + new_word + " "
 
+        if len(output_string) > 0 and (output_string[-1] == "." or output_string[-2:] == ". "):
+            new_phrase = new_phrase.capitalize()
         output_string += new_phrase
 
         #SET NEW STARTING POINT HERE
@@ -58,6 +60,11 @@ def make_text(dictionary, iterations):
     #Ending it
     ##if the last char isn't a comma, semicolon or period, iterate again
     ##OR slice to last punctuation?
+    output_string = output_string.rstrip()
+    if output_string[-1] == ";" or output_string[-1] == ";":
+        output_string += "!"
+    elif output_string[-1] != ".":
+        output_string += "!"
     return output_string
 
 def incantation(length):

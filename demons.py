@@ -24,7 +24,7 @@ class Demon:
         self.skill = self.skill.replace("ANIMAL", archaic((random.choice(language.animals) + "s")))
         self.skill = self.skill.replace("POS_ADJ", archaic(random.choice(language.positive_adj)))
         self.skill = self.skill.replace("TRUE_ADJ", archaic(random.choice(language.true_adj)))
-        self.skill = self.skill.replace("STRENGTH", archaic(random.choice(language.strengths)))        
+        self.skill = self.skill.replace("STRENGTH", archaic(random.choice(language.strengths)))
         #insert twisted sword easter egg here
         self.animal_form = random.choice(language.animals)
         self.human_form = random.choice(language.human_descriptions) + " " + random.choice(language.human_forms)
@@ -33,12 +33,15 @@ class Demon:
         self.planet = random.choice(language.planets)
         self.trinket = random.choice(language.trinkets)
         self.voice = random.choice(language.voices)
-        """
-        To add:
-        * consequences (split by rank?)
-        * skills
-        * sign of presence / voice
-        """
+        if self.card.suit == "Swords":
+            if self.card.name[:4] == "VII ":
+                self.skill = "maketh thee drunk and give thee Five swords"
+            elif self.card.name[:3] == "IX ":
+                self.skill = "maketh thy foes Wake in the night surrounded by the Swords that shall be their Death"
+
+
+
+
 
 class King:
     def __init__(self, name, realm):

@@ -1,10 +1,10 @@
 import random
 
-first_syl = ["A", "Na", "Mo", "Ai", "Ba", "Be", "Sa", "E", "Bo", "Gu", "Bu", "Le", "Ba" , "Ar", "Ger", "Dar", "Da", "Cha", "Char", "Haz", "Ha", "He", "Her", "Hor", "Bor", "Ado", "Camu"]
+first_syl = ["A", "Na", "Mo", "Ai", "Ba", "Be", "Sa", "E", "Bo", "Gu", "Bu", "Le", "Ba" , "Ar", "Ger", "Dar", "Da", "Cha", "Char", "Haz", "Ha", "He", "Her", "Hor", "Bor", "Ado", "Camu", "Zu"]
 cons = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "l", "m", "n", "p", "q", "r", "s", "t", "th", "v", "w", "x", "y", "z"]
 vowel = ["a", "e", "i", "o", "u", "y"]
-middle_syl = ["az", "mor", "oth", "al", "el", "an"]
-last_syl = ["oth", "eros", "eos", "os", "ar", "son", "mon", "der", "aye", "oin", "er", "alam", "ael", "res", "iel"]
+middle_syl = ["az", "mor", "oth", "al", "el", "an", "mar"]
+last_syl = ["oth", "eros", "eos", "os", "ar", "son", "mon", "der", "aye", "oin", "er", "alam", "ael", "res", "iel", "mab"]
 
 
 
@@ -22,7 +22,7 @@ def new(names_list):
     """
     0-9: Shortish name
     10-94: Reasonable name
-    95-99: Unreasonable name
+    96-99: Unreasonable name
     """
     name = ""
     unique = False
@@ -33,7 +33,7 @@ def new(names_list):
                 name = random.choice(first_syl) + random.choice(cons)
             else:
                 name = random.choice(first_syl) + random.choice(cons) + random.choice(last_syl)
-        elif roll < 95:
+        elif roll < 96:
             syllables = random.randint(1,3)
             name += random.choice(first_syl) + random.choice(cons)
             while syllables > 0:
