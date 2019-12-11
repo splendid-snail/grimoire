@@ -348,12 +348,13 @@ def describe_ritual(demon):
         output = output.replace("DEMON_RANK", demon.rank)
         output += "</ol>\n"
     #Invocation begins
+    invoc_length = 75
     output += "<p>Now at this Climax of the ritual, to invoke the " + demon.rank + " " + demon.name + " intone the following:</p>\n"
     output += "<div class = \"w3-card w3-white\"> <div class=\"w3-container\">\n"
-    output += "<p>By "+ markov.incantation(25) + "</p>\n"
-    output += "<p>And " + markov.incantation(25) + "</p>\n"
-    output += "<p>And by "+ markov.incantation(25) + "</p>\n"
-    output += "<p>And " + markov.incantation(25) + "</p>\n"
+    output += "<p>By "+ markov.incantation(invoc_length, demon.name) + "</p>\n"
+    output += "<p>And " + markov.incantation(invoc_length, demon.name) + "</p>\n"
+    output += "<p>And by "+ markov.incantation(invoc_length, demon.name) + "</p>\n"
+    output += "<p>And " + markov.incantation(invoc_length, demon.name) + "</p>\n"
     output += "</div></div>"
     output += paragraph(random.choice(language.post_ritual_phrase))
     output = output.replace("DEMON_NAME", demon.name)

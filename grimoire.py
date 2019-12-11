@@ -5,6 +5,7 @@ import demons
 import text_output
 import html_output
 
+
 random.seed()
 
 #useful and necessary lists

@@ -11,6 +11,7 @@ def read_file_to_list(filename):
     return word_list
 
 def make_dict(source_list):
+    """Now a deprecated function"""
     markov_dictionary = {}
     list_index = 0
     list_length = len(source_list)
@@ -31,35 +32,52 @@ def make_dict(source_list):
 
     return markov_dictionary
 
-def make_text(dictionary, iterations):
+def make_two_dict(source_list):
+    markov_dictionary = {}
+    list_index = 0
+    list_len = len(source_list)
+
+    while list_index < (list_len - 1):
+        word_one = source_list[list_index]
+        word_two = source_list[list_index + 1]
+        if not word_one in markov_dictionary:
+            markov_dictionary[word_one] = [word_two]
+        else:
+            value = markov_dictionary[word_one]
+            value.append(word_two)
+            markov_dictionary[word_one] = value
+        list_index = list_index + 1
+    return markov_dictionary
+
+def make_two_text(dictionary, iterations, name):
     key_list = []
-    phrase_list = []
-    output_string = ""
-    starting_point = "null"
-    iterations_initial_value = iterations
     for key in dictionary:
         key_list.append(key)
-    starting_point = random.choice(key_list)
+        print(key)
+
+    current_word = random.choice(key_list)
+    output_string = current_word
+
     while iterations > 0:
-
-        new_word = random.choice(dictionary.get(starting_point))
-        new_phrase = starting_point + " " + new_word + " "
-
-        if len(output_string) > 0 and (output_string[-1] == "." or output_string[-2:] == ". "):
-            new_phrase = new_phrase.capitalize()
-        output_string += new_phrase
-
-        #SET NEW STARTING POINT HERE
-        phrase_list = new_phrase.split()
-        if len(phrase_list) == 2:
-            starting_point = phrase_list[1] + " " + phrase_list[2]
+        next_word_options = dictionary.get(current_word)
+        if next_word_options:
+            next_word = random.choice(next_word_options)
         else:
-            starting_point = random.choice(key_list)
+            next_word = "DEMON_NAME"
+        output_string += " " + next_word
+        current_word = next_word
         iterations -= 1
-
     #Ending it
-    ##if the last char isn't a comma, semicolon or period, iterate again
-    ##OR slice to last punctuation?
+    next_word_options = dictionary.get(current_word)
+
+    while (next_word == "and") or (next_word == "the") or (next_word == "or"):
+        if next_word_options:
+            next_word = random.choice(next_word_options)
+        else:
+                next_word = "DEMON_NAME"
+        output_string += " " + next_word
+        current_word = next_word
+
     output_string = output_string.rstrip()
     if output_string[-1] == ";" or output_string[-1] == ";":
         output_string += "!"
@@ -67,8 +85,58 @@ def make_text(dictionary, iterations):
         output_string += "!"
     return output_string
 
-def incantation(length):
+
+def make_text(dictionary, iterations, name):
+    """Now a broken and deprecated function"""
+    key_list = []
+    phrase_list = []
+    current_string = ""
+    starting_point = "null"
+    iterations_initial_value = iterations
+    for key in dictionary:
+        key_list.append(key)
+
+    starting_point = random.choice(key_list)
+    #print(starting_point)
+
+    next_word_options = dictionary.get(starting_point)
+
+    next_word = random.choice(next_word_options)
+
+    current_string = starting_point + " " + next_word 
+    output_string = current_string
+    #print(current_string)
+
+    while iterations > 0:
+        current_phrase_split = current_string.split()
+
+        second_starting_point = current_phrase_split[1] + " " + current_phrase_split[2]
+        #print(second_starting_point)
+
+        next_word_options = dictionary.get(second_starting_point)
+        #print(next_word_options)
+
+        if next_word_options:
+            next_word = random.choice(next_word_options)
+        else:
+            next_word = "DEMON_NAME"
+
+        current_string = second_starting_point + " " + next_word + " "
+        output_string += " " + next_word
+
+        iterations -= 1
+    #Ending it
+    output_string = output_string.rstrip()
+    if output_string[-1] == ";" or output_string[-1] == ";":
+        output_string += "!"
+    elif output_string[-1] != ".":
+        output_string += "!"
+    print(output_string)
+    print("\n")
+    return output_string
+
+def incantation(length, name):
     output = read_file_to_list("incantation_source.txt")
-    dict = make_dict(output)
-    output = make_text(dict, length)
+    our_dict = make_two_dict(output)
+    output = make_two_text(our_dict, length, name)
     return output
